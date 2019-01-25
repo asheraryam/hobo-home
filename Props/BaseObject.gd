@@ -9,6 +9,7 @@ func _ready():
 
 func _integrate_forces(state):
 	if dragging:
+		gravity_scale = 0
 		state.set_linear_velocity(Vector2(0,0))
 		state.set_angular_velocity(0)
 		if translate_by:
@@ -20,3 +21,5 @@ func _integrate_forces(state):
 				)
 			)
 			translate_by = null
+	else:
+		gravity_scale = 10
