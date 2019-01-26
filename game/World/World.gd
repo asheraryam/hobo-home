@@ -26,6 +26,8 @@ func handle_press_input(event):
 					WorldHelper.pressed_object.mode = RigidBody2D.MODE_RIGID
 					WorldHelper.pressed_object.dragging = true
 					WorldHelper.hovered_object = null
+					if(WorldHelper.pressed_object.has_method("set_hover")):
+						WorldHelper.pressed_object.set_hover(false)
 					pointer._on_hover_end(WorldHelper.pressed_object)
 				if WorldHelper.pressed_object == $Hobo.item_target:
 					$Hobo._on_next_desire_timeout()
@@ -72,10 +74,13 @@ func handle_drag_and_hover_input(event):
 		unsleep_all_objects()
 
 func refresh_hover():
+
 	var result = find_colliding_object()
 	if WorldHelper.hovered_object != result:
 		if WorldHelper.hovered_object and WorldHelper.hovered_object.has_method("set_hover"):
 			WorldHelper.hovered_object.set_hover(false)
+		if WorldHelper.pressed_object:
+			return
 		WorldHelper.hovered_object = result
 		if result and result.has_method("set_hover"):
 			result.set_hover(true)

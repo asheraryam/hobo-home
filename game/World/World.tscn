@@ -101,12 +101,8 @@ material = SubResource( 4 )
 texture = ExtResource( 6 )
 script = ExtResource( 7 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster"]
-visible = false
-position = Vector2( 90.8527, -22.0994 )
-polygon = PoolVector2Array( 57.3995, -11.5094, 22.4922, 139.413, -198.759, 137.873, -231.613, -13.0494 )
-
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
+editor/display_folded = true
 visible = false
 collision_layer = 5
 collision_mask = 5
@@ -115,6 +111,11 @@ collision_mask = 5
 position = Vector2( 84.7141, -12.2774 )
 polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
 one_way_collision = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster"]
+visible = false
+position = Vector2( 90.8527, -22.0994 )
+polygon = PoolVector2Array( 57.3995, -11.5094, 22.4922, 139.413, -198.759, 137.873, -231.613, -13.0494 )
 
 [node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
 position = Vector2( -6.27563, 2.34088 )
@@ -151,7 +152,7 @@ position = Vector2( 852.002, 190.906 )
 position = Vector2( 717.691, 301.43 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
-position = Vector2( 832.703, 674.158 )
+position = Vector2( 831.595, 658.645 )
 collision_layer = 8
 collision_mask = 8
 script = ExtResource( 10 )
