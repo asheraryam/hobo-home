@@ -54,6 +54,7 @@ func display_item(thing):
 		displayed_item.set_sleeping(false)
 		
 func displayed_pressed(item):
+	item.disconnect("item_pressed", self, "displayed_pressed")
 	if item == displayed_item:
 		$SmokeEffect.emitting = false
 		var index = item_pool.find(displayed_item)

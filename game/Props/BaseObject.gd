@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+
+export var time_for_activity = -1
 export var physics_enabled = true
 export var random_color = true
 var color_randomized = false
@@ -61,7 +63,6 @@ func apply_drag_input(state):
 		if physics_enabled:
 			reset_gravity()
 
-
 func reset_gravity():
 	if being_displayed:
 		return
@@ -71,3 +72,6 @@ func set_hover(value):
 	var sprite = get_node("icon")
 	if sprite and sprite.has_method("set_hover"):
 		sprite.set_hover(value)
+
+func set_desired(value):
+	pass

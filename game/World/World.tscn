@@ -1,25 +1,27 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Interface/Pointer.gd" type="Script" id=4]
+[ext_resource path="res://Interface/Pointer.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=3]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Dumpster.gd" type="Script" id=5]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=6]
 [ext_resource path="res://Sprites/dumpster.png" type="Texture" id=7]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=8]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://World/Hobo.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/hobo.png" type="Texture" id=11]
 
-[sub_resource type="PhysicsMaterial" id=1]
-
-
-[sub_resource type="RectangleShape2D" id=2]
-
-extents = Vector2( 1107.3, 82.56 )
-
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 
 radius = 2.67089
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 1107.3, 82.56 )
 
 [sub_resource type="ShaderMaterial" id=4]
 
@@ -42,10 +44,19 @@ hue_variation = 1.0
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Pointer" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
+shape = SubResource( 1 )
+
 [node name="BG City" type="TextureRect" parent="."]
 margin_right = 2467.0
 margin_bottom = 1080.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -55,33 +66,41 @@ __meta__ = {
 [node name="AlleyFloor" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 671.569, 907.825 )
-physics_material_override = SubResource( 1 )
-
-[node name="icon" type="Sprite" parent="AlleyFloor"]
-visible = false
-position = Vector2( 2.38001, 0 )
-scale = Vector2( 8.51191, 1 )
-texture = ExtResource( 3 )
+physics_material_override = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlleyFloor"]
 position = Vector2( 344.458, -45.1119 )
-shape = SubResource( 2 )
-
-[node name="Pointer" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
 shape = SubResource( 3 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1223.46, 143.026 )
+collision_layer = 4
+collision_mask = 4
+time_for_activity = 1
+physics_enabled = false
+
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1105.14, 310.555 )
+
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 519.813, 379.146 )
+
+[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 924.079, 342.852 )
+
+[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 852.002, 190.906 )
+
+[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 717.691, 301.43 )
+
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
+editor/display_folded = true
 position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
@@ -130,28 +149,26 @@ speed_scale = 3.5
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 1223.46, 143.026 )
-collision_layer = 4
-collision_mask = 4
-physics_enabled = false
+[node name="Hobo" type="KinematicBody2D" parent="."]
+position = Vector2( 832.703, 674.158 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 10 )
 
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 1105.14, 310.555 )
+[node name="next_desire" type="Timer" parent="Hobo"]
+wait_time = 10.0
+one_shot = true
+autostart = true
 
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 519.813, 379.146 )
+[node name="Sprite" type="Sprite" parent="Hobo"]
+texture = ExtResource( 11 )
 
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 924.079, 342.852 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
+polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
 
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 852.002, 190.906 )
-
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 717.691, 301.43 )
+[node name="walk_tween" type="Tween" parent="Hobo"]
 
 [connection signal="area_entered" from="Pointer" to="Pointer" method="_on_hover_start"]
 [connection signal="area_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
@@ -159,3 +176,4 @@ position = Vector2( 717.691, 301.43 )
 [connection signal="body_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
 [connection signal="timeout" from="Objects/Dumpster/next_trash" to="Objects/Dumpster" method="_on_next_trash_timeout"]
 [connection signal="body_entered" from="Objects/Dumpster/Area2D" to="Objects/Dumpster" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Hobo/next_desire" to="Hobo" method="_on_next_desire_timeout"]
