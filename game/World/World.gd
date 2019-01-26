@@ -63,13 +63,7 @@ func handle_rotation_input(event):
 func handle_drag_and_hover_input(event):
 	pointer.position = event.position
 	
-	var result = find_colliding_object()
-#	if result and WorldHelper.hovered_object != result:
-#		if WorldHelper.has_method("set_hover"):
-#			WorldHelper.hovered_object.set_hover(false)
-	WorldHelper.hovered_object = result
-#		if result.has_method("set_hover"):
-#			result.set_hover(true)
+	refresh_hover()
 		
 	if WorldHelper.pressed_object and WorldHelper.pressed_object.has_method("apply_drag_input"):
 		if WorldHelper.pressed_object.translate_by ==null:
@@ -79,11 +73,11 @@ func handle_drag_and_hover_input(event):
 
 func refresh_hover():
 	var result = find_colliding_object()
-	if result and WorldHelper.hovered_object != result:
-		if WorldHelper.has_method("set_hover"):
+	if WorldHelper.hovered_object != result:
+		if WorldHelper.hovered_object and WorldHelper.hovered_object.has_method("set_hover"):
 			WorldHelper.hovered_object.set_hover(false)
 		WorldHelper.hovered_object = result
-		if result.has_method("set_hover"):
+		if result and result.has_method("set_hover"):
 			result.set_hover(true)
 
 func find_colliding_object():
