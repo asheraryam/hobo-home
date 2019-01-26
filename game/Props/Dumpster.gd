@@ -17,7 +17,7 @@ func take_item(item):
 		item.get_parent().remove_child(item)
 	
 func activate():
-	if item_pool.size() >0:
+	if item_pool.size() >0 and not $AnimationPlayer.is_playing():
 		show_item_from_pool()
 	
 func show_item_from_pool():
@@ -32,6 +32,7 @@ func show_item_from_pool():
 	display_item(thing)
 
 func populate_pool():
+	set_hover(false)
 	if displayed_item:
 		displayed_item.get_parent().remove_child(displayed_item)
 		displayed_item = null

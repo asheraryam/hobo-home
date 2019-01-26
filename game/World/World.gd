@@ -24,6 +24,8 @@ func handle_press_input(event):
 			WorldHelper.pressed_object = WorldHelper.hovered_object
 			if WorldHelper.pressed_object:
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
+					if WorldHelper.pressed_object.get_node("AnimationPlayer"):
+						WorldHelper.pressed_object.get_node("AnimationPlayer").stop()
 #					if WorldHelper.pressed_object.physics_enabled:
 					$SFX/selected.play()
 					WorldHelper.pressed_object.mode = RigidBody2D.MODE_RIGID
@@ -36,8 +38,7 @@ func handle_press_input(event):
 					$Hobo._on_next_desire_timeout()
 				if WorldHelper.pressed_object.has_method("activate"):
 					WorldHelper.pressed_object.activate()
-				if WorldHelper.pressed_object.get_node("AnimationPlayer"):
-					WorldHelper.pressed_object.get_node("AnimationPlayer").stop()
+
 		else:
 			if WorldHelper.pressed_object != null:
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):

@@ -19,7 +19,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-radius = 2.67089
+radius = 4.76621
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -284,7 +284,6 @@ stream = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="Pointer" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 7
 collision_mask = 7
 script = ExtResource( 5 )
@@ -353,7 +352,6 @@ position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
 mode = 1
-custom_integrator = true
 continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
@@ -361,7 +359,7 @@ can_sleep = false
 script = ExtResource( 7 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
@@ -379,18 +377,14 @@ animation = "empty"
 script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
-editor/display_folded = true
-visible = false
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster/Area2D"]
 position = Vector2( 84.7141, -12.2774 )
 polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
-one_way_collision = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster"]
-visible = false
 position = Vector2( 90.8527, -22.0994 )
 polygon = PoolVector2Array( 57.3995, -11.5094, 22.4922, 139.413, -198.759, 137.873, -231.613, -13.0494 )
 
