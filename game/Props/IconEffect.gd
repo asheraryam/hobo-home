@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 onready var mat = self.get_material()
 

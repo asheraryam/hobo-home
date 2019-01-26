@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dumpster.png-63dcfc41827bdeffb32155f3c89b5608.stex"
+path="res://.import/dumpster+trashbags.png-af2f134e840824d486c5da322ce7a90a.stex"
 
 [deps]
 
-source_file="res://Sprites/dumpster.png"
-dest_files=[ "res://.import/dumpster.png-63dcfc41827bdeffb32155f3c89b5608.stex" ]
+source_file="res://Sprites/General/dumpster+trashbags.png"
+dest_files=[ "res://.import/dumpster+trashbags.png-af2f134e840824d486c5da322ce7a90a.stex" ]
 
 [params]
 

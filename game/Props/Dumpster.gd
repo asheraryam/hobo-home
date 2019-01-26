@@ -32,7 +32,8 @@ func show_item_from_pool():
 	display_item(thing)
 
 func populate_pool():
-	WorldHelper.world.get_node("SFX/more_trash").play()
+#	WorldHelper.world.get_node("SFX/more_trash").play()
+	$AnimationPlayer.play("drop_trash")
 	if item_pool_length > item_pool.size():
 		for i in range(item_pool_length - item_pool.size()):
 			var thing = random_object.instance()
@@ -65,6 +66,7 @@ func displayed_pressed(item):
 			item_pool.remove(index)
 			displayed_item = null
 			item_pool = []
+			$icon.animation = "empty"
 			set_hover(false)
 
 func set_hover(value):
@@ -80,7 +82,7 @@ func _on_Area2D_body_entered(body):
 		
 func _on_next_trash_timeout():
 #	$next_trash.start()
-	smoke_effect()
+#	smoke_effect()
 	populate_pool()
 
 func smoke_effect():

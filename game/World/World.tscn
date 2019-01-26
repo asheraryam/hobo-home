@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Audio/interface/drop.wav" type="AudioStream" id=2]
@@ -8,12 +8,14 @@
 [ext_resource path="res://Sprites/Background/background.png" type="Texture" id=6]
 [ext_resource path="res://Props/Dumpster.gd" type="Script" id=7]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=8]
-[ext_resource path="res://Sprites/dumpster.png" type="Texture" id=9]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=12]
-[ext_resource path="res://World/Hobo.gd" type="Script" id=13]
-[ext_resource path="res://Sprites/hobo.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=10]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=13]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=14]
+[ext_resource path="res://World/Hobo.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -42,6 +44,162 @@ extents = Vector2( 184.099, 10 )
 
 extents = Vector2( 1107.3, 82.56 )
 
+[sub_resource type="Animation" id=12]
+
+resource_name = "drop_trash"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("trash_bag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( -14.1879, -725.048 ), Vector2( 3.3443, -76.3573 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("trash_bag:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 30.5376, -150.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("icon:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "empty", "full" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("trash_bag:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("icon:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 26.5929 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("icon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("icon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.001, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "smoke_effect"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "filling_up"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "empty", "full" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("trash_bag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -234.314, -94.9043 ), Vector2( -66.2685, -171.211 ), Vector2( 29.7576, -88.0453 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("trash_bag:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 214.57, 257.951, 311.193 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("trash_bag:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [sub_resource type="ShaderMaterial" id=8]
 
 resource_local_to_scene = true
@@ -49,6 +207,20 @@ shader = ExtResource( 8 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="SpriteFrames" id=10]
+
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
+} ]
 
 [sub_resource type="ParticlesMaterial" id=9]
 
@@ -135,7 +307,6 @@ position = Vector2( 344.458, -45.1119 )
 shape = SubResource( 7 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -153,16 +324,22 @@ can_sleep = false
 script = ExtResource( 7 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
 position = Vector2( -16.4003, -190.694 )
 
-[node name="icon" type="Sprite" parent="Objects/Dumpster"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/Dumpster"]
+playback_speed = 2.0
+anims/drop_trash = SubResource( 12 )
+anims/filling_up = SubResource( 11 )
+
+[node name="icon" type="AnimatedSprite" parent="Objects/Dumpster"]
 material = SubResource( 8 )
-texture = ExtResource( 9 )
-script = ExtResource( 10 )
+frames = SubResource( 10 )
+animation = "empty"
+script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
 editor/display_folded = true
@@ -190,35 +367,40 @@ speed_scale = 3.5
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 9 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 12 )]
+[node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
+position = Vector2( -14.1879, -725.048 )
+rotation = 0.532982
+texture = ExtResource( 13 )
+
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 1223.46, 143.026 )
 collision_layer = 4
 collision_mask = 4
 time_for_activity = 1
 physics_enabled = false
 
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 12 )]
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 1105.14, 310.555 )
 
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 12 )]
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 519.813, 379.146 )
 
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 12 )]
+[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 1010.72, 400.612 )
 
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 12 )]
+[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 852.002, 190.906 )
 
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 12 )]
+[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 14 )]
 position = Vector2( 579.608, 267.135 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
 position = Vector2( 831.595, 658.645 )
 collision_layer = 8
 collision_mask = 8
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 
 [node name="next_desire" type="Timer" parent="Hobo"]
 wait_time = 10.0
@@ -226,7 +408,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="Hobo"]
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
 polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )

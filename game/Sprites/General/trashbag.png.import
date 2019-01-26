@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hobo.png-b292388d0202ce13017d891ce22ece09.stex"
+path="res://.import/trashbag.png-1f11e656d8d7a14cccf179825aa43294.stex"
 
 [deps]
 
-source_file="res://Sprites/hobo.png"
-dest_files=[ "res://.import/hobo.png-b292388d0202ce13017d891ce22ece09.stex" ]
+source_file="res://Sprites/General/trashbag.png"
+dest_files=[ "res://.import/trashbag.png-1f11e656d8d7a14cccf179825aa43294.stex" ]
 
 [params]
 
