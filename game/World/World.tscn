@@ -3,12 +3,12 @@
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Interface/Pointer.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Background/background.png" type="Texture" id=3]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Props/Dumpster.gd" type="Script" id=5]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=6]
-[ext_resource path="res://Sprites/dumpster.png" type="Texture" id=7]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Props/Dumpster.gd" type="Script" id=4]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=5]
+[ext_resource path="res://Sprites/dumpster.png" type="Texture" id=6]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Hobo.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/hobo.png" type="Texture" id=11]
 
@@ -26,7 +26,7 @@ extents = Vector2( 1107.3, 82.56 )
 [sub_resource type="ShaderMaterial" id=4]
 
 resource_local_to_scene = true
-shader = ExtResource( 6 )
+shader = ExtResource( 5 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
@@ -77,30 +77,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1223.46, 143.026 )
-collision_layer = 4
-collision_mask = 4
-time_for_activity = 1
-physics_enabled = false
-
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1105.14, 310.555 )
-
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 519.813, 379.146 )
-
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 924.079, 342.852 )
-
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 852.002, 190.906 )
-
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 717.691, 301.43 )
-
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
-editor/display_folded = true
 position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
@@ -110,7 +87,7 @@ continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
 wait_time = 10.0
@@ -121,8 +98,8 @@ position = Vector2( -16.4003, -190.694 )
 
 [node name="icon" type="Sprite" parent="Objects/Dumpster"]
 material = SubResource( 4 )
-texture = ExtResource( 7 )
-script = ExtResource( 8 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster"]
 visible = false
@@ -149,7 +126,29 @@ speed_scale = 3.5
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
+
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 1223.46, 143.026 )
+collision_layer = 4
+collision_mask = 4
+time_for_activity = 1
+physics_enabled = false
+
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 1105.14, 310.555 )
+
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 519.813, 379.146 )
+
+[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 924.079, 342.852 )
+
+[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 852.002, 190.906 )
+
+[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 717.691, 301.43 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
 position = Vector2( 832.703, 674.158 )

@@ -38,12 +38,13 @@ func handle_press_input(event):
 				WorldHelper.pressed_object.dragging = false
 				nudge_object(WorldHelper.pressed_object)
 				unsleep_all_objects()
-				var collidys = WorldHelper.pressed_object.get_colliding_bodies()
-				for thing in collidys:
-					if(thing.has_method("take_item")):
-						thing.take_item(WorldHelper.pressed_object)
-						break
+#				var collidys = WorldHelper.pressed_object.get_colliding_bodies()
+#				for thing in collidys:
+#					if(thing.has_method("take_item")):
+#						thing.take_item(WorldHelper.pressed_object)
+#						break
 				WorldHelper.pressed_object = null
+				
 			
 func handle_rotation_input(event):
 	if not WorldHelper.pressed_object or not WorldHelper.pressed_object.has_method("apply_drag_input"):
@@ -61,18 +62,27 @@ func handle_drag_and_hover_input(event):
 	pointer.position = event.position
 	
 	var result = find_colliding_object()
-	if result and WorldHelper.hovered_object != result:
-		if WorldHelper.has_method("set_hover"):
-			WorldHelper.hovered_object.set_hover(false)
-		WorldHelper.hovered_object = result
-		if result.has_method("set_hover"):
-			result.set_hover(true)
+#	if result and WorldHelper.hovered_object != result:
+#		if WorldHelper.has_method("set_hover"):
+#			WorldHelper.hovered_object.set_hover(false)
+	WorldHelper.hovered_object = result
+#		if result.has_method("set_hover"):
+#			result.set_hover(true)
 		
 	if WorldHelper.pressed_object and WorldHelper.pressed_object.has_method("apply_drag_input"):
 		if WorldHelper.pressed_object.translate_by ==null:
 			WorldHelper.pressed_object.translate_by = Vector2(0,0)
 		WorldHelper.pressed_object.translate_by += event.get_relative()
 		unsleep_all_objects()
+
+func refresh_hover():
+	var result = find_colliding_object()
+	if result and WorldHelper.hovered_object != result:
+		if WorldHelper.has_method("set_hover"):
+			WorldHelper.hovered_object.set_hover(false)
+		WorldHelper.hovered_object = result
+		if result.has_method("set_hover"):
+			result.set_hover(true)
 
 func find_colliding_object():
 	var pointer_shape = pointer.shape_owner_get_shape(0,0)
