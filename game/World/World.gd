@@ -7,6 +7,7 @@ var pressed = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(true)
+	WorldHelper.world = self
 	WorldHelper.parent_all_objects = get_node("Objects")
 
 func _input(event):
@@ -23,6 +24,8 @@ func handle_press_input(event):
 			WorldHelper.pressed_object = WorldHelper.hovered_object
 			if WorldHelper.pressed_object:
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
+#					if WorldHelper.pressed_object.physics_enabled:
+					$SFX/selected.play()
 					WorldHelper.pressed_object.mode = RigidBody2D.MODE_RIGID
 					WorldHelper.pressed_object.dragging = true
 					WorldHelper.hovered_object = null
@@ -38,6 +41,8 @@ func handle_press_input(event):
 		else:
 			if WorldHelper.pressed_object != null:
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
+					if WorldHelper.pressed_object.physics_enabled:
+						$SFX/drop.play()
 					if(not WorldHelper.pressed_object.physics_enabled):
 						WorldHelper.pressed_object.mode = RigidBody2D.MODE_STATIC
 					WorldHelper.pressed_object.dragging = false
