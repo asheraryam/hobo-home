@@ -1,12 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Props/BaseObject.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="PhysicsMaterial" id=1]
-
-friction = 0.5
-bounce = 0.2
+[ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -14,12 +10,12 @@ extents = Vector2( 31.4149, 31.412 )
 
 [node name="Jabberwocky" type="RigidBody2D"]
 position = Vector2( 508.535, 172.246 )
-physics_material_override = SubResource( 1 )
+physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
