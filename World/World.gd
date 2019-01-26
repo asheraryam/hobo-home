@@ -8,15 +8,17 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed():
-			current_pressed_object = find_colliding_object(event.position)
-			if current_pressed_object:
-				current_pressed_object.dragging = true
-		elif current_pressed_object != null:
-			current_pressed_object.dragging = false
-			nudge_object(current_pressed_object)
-			unsleep_all_objects()
-			current_pressed_object = null
+		if event.button_index  == BUTTON_LEFT:
+			if event.is_pressed():
+				current_pressed_object = find_colliding_object(event.position)
+				if current_pressed_object:
+					current_pressed_object.dragging = true
+			elif current_pressed_object != null:
+				current_pressed_object.dragging = false
+				nudge_object(current_pressed_object)
+				unsleep_all_objects()
+				current_pressed_object = null
+		handle_rotation_input(event)
 	elif event is InputEventMouseMotion and current_pressed_object:
 		if current_pressed_object.translate_by ==null:
 			current_pressed_object.translate_by = Vector2(0,0)
@@ -41,3 +43,15 @@ func nudge_object(object):
 func unsleep_all_objects():
 	for node in get_node("Objects").get_children():
 		node.set_sleeping(false)
+
+func handle_rotation_input(event):
+	if not current_pressed_object:
+		return 
+	if current_pressed_object.rotate_by == null:
+		current_pressed_object.rotate_by = 0
+	if event.button_index == BUTTON_WHEEL_UP and event.is_pressed():
+		if current_pressed_object:
+			current_pressed_object.rotate_by -= 0.35
+	if event.button_index == BUTTON_WHEEL_DOWN and event.is_pressed():
+		if current_pressed_object:
+			current_pressed_object.rotate_by += 0.35
