@@ -32,8 +32,13 @@ func show_item_from_pool():
 	display_item(thing)
 
 func populate_pool():
+	if displayed_item:
+		displayed_item.get_parent().remove_child(displayed_item)
+		displayed_item = null
+	item_pool = []
 #	WorldHelper.world.get_node("SFX/more_trash").play()
 	$AnimationPlayer.play("drop_trash")
+	yield($AnimationPlayer,"animation_finished")
 	if item_pool_length > item_pool.size():
 		for i in range(item_pool_length - item_pool.size()):
 			var thing = random_object.instance()

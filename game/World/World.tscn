@@ -361,7 +361,7 @@ can_sleep = false
 script = ExtResource( 7 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
