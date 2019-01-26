@@ -44,7 +44,7 @@ extents = Vector2( 184.099, 10 )
 
 extents = Vector2( 1107.3, 82.56 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 
 resource_name = "drop_trash"
 length = 1.2
@@ -147,7 +147,7 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 
 resource_name = "filling_up"
 step = 0.01
@@ -200,7 +200,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=10]
 
 resource_local_to_scene = true
 shader = ExtResource( 8 )
@@ -208,7 +208,7 @@ shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
@@ -222,32 +222,32 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=12]
 
 colors = PoolColorArray( 1, 1, 1, 1, 0.509804, 0.509804, 0.509804, 0 )
 
-[sub_resource type="GradientTexture" id=14]
+[sub_resource type="GradientTexture" id=13]
 
-gradient = SubResource( 13 )
+gradient = SubResource( 12 )
 
-[sub_resource type="Curve" id=15]
+[sub_resource type="Curve" id=14]
 
 min_value = -1.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=16]
+[sub_resource type="CurveTexture" id=15]
 
-curve = SubResource( 15 )
+curve = SubResource( 14 )
 
-[sub_resource type="Curve" id=17]
+[sub_resource type="Curve" id=16]
 
 _data = [ Vector2( 0, 0.2888 ), 0.0, 0.0, 0, 0, Vector2( 0.982422, 0.533 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=18]
+[sub_resource type="CurveTexture" id=17]
 
-curve = SubResource( 17 )
+curve = SubResource( 16 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=18]
 
 emission_shape = 2
 emission_box_extents = Vector3( 2, 2, 2 )
@@ -264,10 +264,10 @@ angle = 360.0
 angle_random = 0.5
 scale = 0.5
 scale_random = 0.5
-scale_curve = SubResource( 18 )
-color_ramp = SubResource( 14 )
+scale_curve = SubResource( 17 )
+color_ramp = SubResource( 13 )
 hue_variation = 1.0
-hue_variation_curve = SubResource( 16 )
+hue_variation_curve = SubResource( 15 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -369,12 +369,12 @@ position = Vector2( -16.4003, -190.694 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/Dumpster"]
 playback_speed = 2.0
-anims/drop_trash = SubResource( 12 )
-anims/filling_up = SubResource( 11 )
+anims/drop_trash = SubResource( 8 )
+anims/filling_up = SubResource( 9 )
 
 [node name="icon" type="AnimatedSprite" parent="Objects/Dumpster"]
-material = SubResource( 8 )
-frames = SubResource( 10 )
+material = SubResource( 10 )
+frames = SubResource( 11 )
 animation = "empty"
 script = ExtResource( 11 )
 
@@ -403,7 +403,7 @@ one_shot = true
 speed_scale = 10.0
 explosiveness = 1.0
 randomness = 0.5
-process_material = SubResource( 9 )
+process_material = SubResource( 18 )
 texture = ExtResource( 12 )
 
 [node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
