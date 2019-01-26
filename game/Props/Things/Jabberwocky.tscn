@@ -6,7 +6,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -14,7 +14,7 @@ shader_param/intensity = null
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 255, 255, 255, 0 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 extents = Vector2( 31.4149, 31.412 )
 
@@ -22,13 +22,17 @@ extents = Vector2( 31.4149, 31.412 )
 position = Vector2( 508.535, 172.246 )
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
+continuous_cd = 1
+contacts_reported = 5
+contact_monitor = true
+can_sleep = false
 script = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 

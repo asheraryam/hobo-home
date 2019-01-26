@@ -2,6 +2,9 @@ extends Node
 
 var hovered_container
 var pressed_object = null
+var hovered_object = null
+
+var parent_all_objects = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
