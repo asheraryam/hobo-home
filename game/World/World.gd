@@ -36,17 +36,18 @@ func handle_press_input(event):
 				if WorldHelper.pressed_object.get_node("AnimationPlayer"):
 					WorldHelper.pressed_object.get_node("AnimationPlayer").stop()
 		else:
-			if WorldHelper.pressed_object != null and WorldHelper.pressed_object.has_method("apply_drag_input"):
-				if(not WorldHelper.pressed_object.physics_enabled):
-					WorldHelper.pressed_object.mode = RigidBody2D.MODE_STATIC
-				WorldHelper.pressed_object.dragging = false
-				nudge_object(WorldHelper.pressed_object)
-				unsleep_all_objects()
-#				var collidys = WorldHelper.pressed_object.get_colliding_bodies()
-#				for thing in collidys:
-#					if(thing.has_method("take_item")):
-#						thing.take_item(WorldHelper.pressed_object)
-#						break
+			if WorldHelper.pressed_object != null:
+				if WorldHelper.pressed_object.has_method("apply_drag_input"):
+					if(not WorldHelper.pressed_object.physics_enabled):
+						WorldHelper.pressed_object.mode = RigidBody2D.MODE_STATIC
+					WorldHelper.pressed_object.dragging = false
+					nudge_object(WorldHelper.pressed_object)
+					unsleep_all_objects()
+	#				var collidys = WorldHelper.pressed_object.get_colliding_bodies()
+	#				for thing in collidys:
+	#					if(thing.has_method("take_item")):
+	#						thing.take_item(WorldHelper.pressed_object)
+	#						break
 				WorldHelper.pressed_object = null
 				
 			
@@ -74,15 +75,12 @@ func handle_drag_and_hover_input(event):
 		unsleep_all_objects()
 
 func refresh_hover():
-
 	var result = find_colliding_object()
 	if WorldHelper.hovered_object != result:
 		if WorldHelper.hovered_object and WorldHelper.hovered_object.has_method("set_hover"):
 			WorldHelper.hovered_object.set_hover(false)
-		if WorldHelper.pressed_object:
-			return
 		WorldHelper.hovered_object = result
-		if result and result.has_method("set_hover"):
+		if result and result.has_method("set_hover") and WorldHelper.pressed_object != result:
 			result.set_hover(true)
 
 func find_colliding_object():

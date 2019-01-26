@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Interface/Pointer.gd" type="Script" id=2]
@@ -15,6 +15,22 @@
 [sub_resource type="CircleShape2D" id=1]
 
 radius = 2.67089
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 106.52, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+extents = Vector2( 106.52, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+extents = Vector2( 362.46, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+extents = Vector2( 184.099, 10 )
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -62,6 +78,33 @@ stretch_mode = 5
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Ledges" type="Node2D" parent="."]
+
+[node name="WindowR" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 1405.64, 325.16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/WindowR"]
+shape = SubResource( 6 )
+
+[node name="WindowL" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 788.187, 323.665 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ledges/WindowL"]
+shape = SubResource( 7 )
+
+[node name="Escape" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 1481.17, 169.302 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/Escape"]
+position = Vector2( -23.1581, 0 )
+shape = SubResource( 8 )
+
+[node name="Pipe" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 724.128, 78.1136 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/Pipe"]
+shape = SubResource( 9 )
 
 [node name="AlleyFloor" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -143,13 +186,13 @@ position = Vector2( 1105.14, 310.555 )
 position = Vector2( 519.813, 379.146 )
 
 [node name="Jabberwocky4" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 924.079, 342.852 )
+position = Vector2( 1010.72, 400.612 )
 
 [node name="Jabberwocky5" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 852.002, 190.906 )
 
 [node name="Jabberwocky6" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 717.691, 301.43 )
+position = Vector2( 579.608, 267.135 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
 position = Vector2( 831.595, 658.645 )
