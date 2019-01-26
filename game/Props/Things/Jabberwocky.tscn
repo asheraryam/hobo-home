@@ -5,6 +5,7 @@
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
+[ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -27,59 +28,6 @@ animations = [ {
 
 extents = Vector2( 31.4149, 31.412 )
 
-[sub_resource type="Animation" id=4]
-
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("icon:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -26.4645 ), Vector2( 0, -47.0481 ), Vector2( 0, -24.8105 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("icon:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 22.0205, 0.0, -18.2986, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -25.3425 ), Vector2( 0, -45.0533 ), Vector2( 0, -23.7586 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CollisionShape2D:rotation_degrees")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 21.2729, 0.0, -17.5141, 0.0 ]
-}
-
 [node name="Jabberwocky" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
@@ -97,6 +45,5 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hover = SubResource( 4 )
+[node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
 

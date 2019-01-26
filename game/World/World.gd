@@ -6,6 +6,10 @@ var pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	$Weather/Rain.emitting = true
+#	$Weather/Rain.position = $Weather/RainPos.position
+#	$Weather/Rain.emitting = true
+	
 	set_process_input(true)
 	WorldHelper.world = self
 	WorldHelper.parent_all_objects = get_node("Objects")
