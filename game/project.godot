@@ -19,6 +19,11 @@ config/name="Hobo Home"
 run/main_scene="res://World/World.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="Objects"
+2d_physics/layer_2="UI"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

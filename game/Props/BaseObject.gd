@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-
 var dragging = false
 var translate_by = null
 var rotate_by = 0
@@ -11,6 +10,9 @@ func _ready():
 	ORIGINAL_GRAVITY = gravity_scale
 
 func _integrate_forces(state):
+	apply_drag_input(state)
+
+func apply_drag_input(state):
 	if dragging:
 		gravity_scale = 0
 		state.set_linear_velocity(Vector2(0,0))
