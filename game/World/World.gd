@@ -31,6 +31,8 @@ func handle_press_input(event):
 					$Hobo._on_next_desire_timeout()
 				if WorldHelper.pressed_object.has_method("activate"):
 					WorldHelper.pressed_object.activate()
+				if WorldHelper.pressed_object.get_node("AnimationPlayer"):
+					WorldHelper.pressed_object.get_node("AnimationPlayer").stop()
 		else:
 			if WorldHelper.pressed_object != null and WorldHelper.pressed_object.has_method("apply_drag_input"):
 				if(not WorldHelper.pressed_object.physics_enabled):

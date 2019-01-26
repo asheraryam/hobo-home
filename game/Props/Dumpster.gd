@@ -44,6 +44,8 @@ func display_item(thing):
 		displayed_item.being_displayed = true
 	if "gravity_scale" in thing:
 		displayed_item.gravity_scale = 0
+	if thing.get_node("AnimationPlayer"):
+		thing.get_node("AnimationPlayer").play("hover")
 	
 	if(displayed_item.random_color and not displayed_item.color_randomized):
 		displayed_item.modulate = Color(randf(), randf(), randf(), 1)
