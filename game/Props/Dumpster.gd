@@ -11,14 +11,14 @@ var random_object = preload("res://Props/Things/Jabberwocky.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	populate_pool()
 	
 func take_item(item):
 	if "being_displayed" in item:
 		item.get_parent().remove_child(item)
 	
 func activate():
-	show_item_from_pool()
+	if item_pool.size() >0:
+		show_item_from_pool()
 	
 func show_item_from_pool():
 	if displayed_item:
@@ -55,19 +55,29 @@ func display_item(thing):
 		
 func displayed_pressed(item):
 	if item == displayed_item:
+		$SmokeEffect.emitting = false
 		var index = item_pool.find(displayed_item)
 		if index > -1:
 			item_pool.remove(index)
 			displayed_item = null
+			item_pool = []
+			set_hover(false)
 
 func set_hover(value):
+	if item_pool.size() == 0 and value:
+		return
 	var sprite = get_node("icon")
 	if sprite and sprite.has_method("set_hover"):
 		sprite.set_hover(value)
 
-func _on_Dumpster_body_entered(body):
+func _on_Area2D_body_entered(body):
 	if "being_displayed" in body:
 		take_item(body)
+		
+func _on_next_trash_timeout():
+#	$next_trash.start()
+	smoke_effect()
+	populate_pool()
 
-func _on_Area2D_body_entered(body):
-	_on_Dumpster_body_entered(body)
+func smoke_effect():
+	$SmokeEffect.emitting = true

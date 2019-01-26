@@ -8,6 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_hover_start(thing):
+#	return # FIXME
 	if(thing != current_hover_item):
 		back_hover_item = thing
 		var sprite = null
@@ -21,6 +22,7 @@ func _on_hover_start(thing):
 		hover_item(current_hover_item, true)
 
 func _on_hover_end(thing):
+#	return # FIXME
 	if thing == back_hover_item:
 		back_hover_item = null
 	if(thing == current_hover_item):
@@ -32,6 +34,6 @@ func _on_hover_end(thing):
 			back_hover_item = null
 				
 func hover_item(item, active):
-	var sprite = current_hover_item.get_node("icon")
-	if(sprite and sprite.has_method("set_hover")):
-		sprite.set_hover(active)
+#	return # FIXME
+	if(current_hover_item.has_method("set_hover")):
+		current_hover_item.set_hover(active)

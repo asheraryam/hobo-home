@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/BG City.jpg" type="Texture" id=2]
@@ -28,6 +28,16 @@ shader = ExtResource( 6 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 1.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+hue_variation = 1.0
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -90,6 +100,10 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 5 )
 
+[node name="next_trash" type="Timer" parent="Objects/Dumpster"]
+wait_time = 10.0
+autostart = true
+
 [node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
 position = Vector2( -16.4003, -190.694 )
 
@@ -104,12 +118,25 @@ script = ExtResource( 8 )
 polygon = PoolVector2Array( -100.946, 35.0902, 12.19, 37.4229, 38.3085, 24.3298, 74.4514, 6.21161, 75.5594, 140.284, 20.1578, 156.904, -247.986, 165.768, -243.554, 37.2365, -189.589, 30.4248 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
+editor/display_folded = true
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster/Area2D"]
 polygon = PoolVector2Array( -167.428, -18.562, 71.674, -24.3938, 70.5076, 3.59869, 37.8498, 66.5817, -245.574, 57.2509, -245.574, 33.9238 )
 one_way_collision = true
+
+[node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
+position = Vector2( -64.7718, 3.70129 )
+rotation = -1.58195
+emitting = false
+lifetime = 5.0
+one_shot = true
+speed_scale = 3.5
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
 
 [node name="Jabberwocky" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 1223.46, 143.026 )
@@ -136,4 +163,5 @@ position = Vector2( 717.691, 301.43 )
 [connection signal="area_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
 [connection signal="body_entered" from="Pointer" to="Pointer" method="_on_hover_start"]
 [connection signal="body_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
+[connection signal="timeout" from="Objects/Dumpster/next_trash" to="Objects/Dumpster" method="_on_next_trash_timeout"]
 [connection signal="body_entered" from="Objects/Dumpster/Area2D" to="Objects/Dumpster" method="_on_Area2D_body_entered"]
