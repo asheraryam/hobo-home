@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Background/BG City.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Interface/Pointer.gd" type="Script" id=4]
 [ext_resource path="res://Props/Dumpster.gd" type="Script" id=5]
@@ -52,17 +52,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BG City2" type="TextureRect" parent="BG City"]
-margin_left = 1570.0
-margin_right = 4037.0
-margin_bottom = 1080.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
-
 [node name="AlleyFloor" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 586.658, 764.718 )
+position = Vector2( 671.569, 907.825 )
 physics_material_override = SubResource( 1 )
 
 [node name="icon" type="Sprite" parent="AlleyFloor"]
@@ -84,12 +76,13 @@ script = ExtResource( 4 )
 shape = SubResource( 3 )
 
 [node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
-position = Vector2( 320.835, 481.464 )
+position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
 mode = 1
@@ -109,25 +102,26 @@ position = Vector2( -16.4003, -190.694 )
 
 [node name="icon" type="Sprite" parent="Objects/Dumpster"]
 material = SubResource( 4 )
-position = Vector2( -83.0544, 8.59186 )
-scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster"]
-polygon = PoolVector2Array( -100.946, 35.0902, 12.19, 37.4229, 38.3085, 24.3298, 74.4514, 6.21161, 75.5594, 140.284, 20.1578, 156.904, -247.986, 165.768, -243.554, 37.2365, -189.589, 30.4248 )
+visible = false
+position = Vector2( 90.8527, -22.0994 )
+polygon = PoolVector2Array( 57.3995, -11.5094, 22.4922, 139.413, -198.759, 137.873, -231.613, -13.0494 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
-editor/display_folded = true
+visible = false
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Dumpster/Area2D"]
-polygon = PoolVector2Array( -167.428, -18.562, 71.674, -24.3938, 70.5076, 3.59869, 37.8498, 66.5817, -245.574, 57.2509, -245.574, 33.9238 )
+position = Vector2( 84.7141, -12.2774 )
+polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
 one_way_collision = true
 
 [node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
-position = Vector2( -64.7718, 3.70129 )
+position = Vector2( -6.27563, 2.34088 )
 rotation = -1.58195
 emitting = false
 lifetime = 5.0
