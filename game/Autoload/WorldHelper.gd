@@ -1,6 +1,7 @@
 extends Node
 
 var hovered_container
+var pressed_object = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

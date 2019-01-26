@@ -29,7 +29,7 @@ void fragment()
 		regular_color = vec4(0.0); 
 	}
 	
-	vec2 ps = TEXTURE_PIXEL_SIZE * sin(1.5*TIME) * float(intensity) * precision;
+	vec2 ps = TEXTURE_PIXEL_SIZE * float(intensity) * precision;
 	
 	vec4 final_color = regular_color;
 	if (regular_color.a <= 0.0)
