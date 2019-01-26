@@ -18,12 +18,15 @@ func handle_press_input(event):
 		if event.is_pressed():
 			WorldHelper.pressed_object = find_colliding_object(event.position)
 			if WorldHelper.pressed_object and WorldHelper.pressed_object.has_method("apply_drag_input"):
+				WorldHelper.pressed_object.mode = RigidBody2D.MODE_RIGID
 				WorldHelper.pressed_object.dragging = true
 				pointer._on_hover_end(WorldHelper.pressed_object)
 		else:
 			if WorldHelper.pressed_object != null:
 				if WorldHelper.hovered_container:
 					WorldHelper.hovered_container.take_item(WorldHelper.pressed_object)
+				if(not WorldHelper.pressed_object.physics_enabled):
+					WorldHelper.pressed_object.mode = RigidBody2D.MODE_STATIC
 				WorldHelper.pressed_object.dragging = false
 				nudge_object(WorldHelper.pressed_object)
 				unsleep_all_objects()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/BG City.jpg" type="Texture" id=2]
@@ -28,6 +28,14 @@ shader_param/outline_color = Color( 1, 1, 1, 0 )
 [sub_resource type="CircleShape2D" id=3]
 
 radius = 2.67089
+
+[sub_resource type="ShaderMaterial" id=6]
+
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/intensity = null
+shader_param/precision = 0.02
+shader_param/outline_color = Color( 255, 255, 255, 0 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -81,9 +89,14 @@ script = ExtResource( 8 )
 shape = SubResource( 3 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Jabberwocky" parent="Objects" instance=ExtResource( 9 )]
+collision_layer = 2
+collision_mask = 2
+physics_enabled = false
+
+[node name="icon" parent="Objects/Jabberwocky" index="0"]
+material = SubResource( 6 )
 
 [node name="Jabberwocky2" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 635.669, 172.246 )
@@ -104,3 +117,5 @@ position = Vector2( 717.691, 301.43 )
 [connection signal="area_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
 [connection signal="body_entered" from="Pointer" to="Pointer" method="_on_hover_start"]
 [connection signal="body_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
+
+[editable path="Objects/Jabberwocky"]

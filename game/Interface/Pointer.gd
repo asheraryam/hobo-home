@@ -9,22 +9,25 @@ func _ready():
 
 func _on_hover_start(thing):
 	if(thing != current_hover_item):
+		back_hover_item = thing
 		var sprite = null
 		if(current_hover_item):
 			hover_item(current_hover_item, false)
 			current_hover_item = null
 		elif WorldHelper.pressed_object:
 			if(not thing.has_method("take_item")):
-				back_hover_item = thing
 				return
 		current_hover_item = thing
 		hover_item(current_hover_item, true)
 
 func _on_hover_end(thing):
+	if thing == back_hover_item:
+		back_hover_item = null
 	if(thing == current_hover_item):
 		hover_item(current_hover_item, false)
 		current_hover_item = null
 		if(back_hover_item):
+#			if overlaps_body(back_hover_item):
 			_on_hover_start(back_hover_item)
 			back_hover_item = null
 				
