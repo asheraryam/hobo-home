@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Audio/interface/drop.wav" type="AudioStream" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=10]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=13]
 [ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/Hobo.gd" type="Script" id=15]
@@ -222,15 +222,52 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Gradient" id=13]
+
+colors = PoolColorArray( 1, 1, 1, 1, 0.509804, 0.509804, 0.509804, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+
+gradient = SubResource( 13 )
+
+[sub_resource type="Curve" id=15]
+
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+
+curve = SubResource( 15 )
+
+[sub_resource type="Curve" id=17]
+
+_data = [ Vector2( 0, 0.2888 ), 0.0, 0.0, 0, 0, Vector2( 0.982422, 0.533 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=18]
+
+curve = SubResource( 17 )
+
 [sub_resource type="ParticlesMaterial" id=9]
 
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 2 )
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
-angular_velocity = 1.05
+initial_velocity = 90.0
+initial_velocity_random = 0.5
+angular_velocity = 50.0
+angular_velocity_random = 0.1
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+linear_accel = -15.0
+angle = 360.0
+angle_random = 0.5
+scale = 0.5
+scale_random = 0.5
+scale_curve = SubResource( 18 )
+color_ramp = SubResource( 14 )
 hue_variation = 1.0
+hue_variation_curve = SubResource( 16 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -358,12 +395,12 @@ position = Vector2( 90.8527, -22.0994 )
 polygon = PoolVector2Array( 57.3995, -11.5094, 22.4922, 139.413, -198.759, 137.873, -231.613, -13.0494 )
 
 [node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
-position = Vector2( -6.27563, 2.34088 )
+position = Vector2( -6.36548, -34.5439 )
 rotation = -1.58195
 emitting = false
 lifetime = 5.0
 one_shot = true
-speed_scale = 3.5
+speed_scale = 10.0
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 9 )
