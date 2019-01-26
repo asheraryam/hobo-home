@@ -13,8 +13,12 @@ func _ready():
 
 func set_hover(active):
 	if(active):
+		if(get_parent().has_method("take_item")):
+			WorldHelper.hovered_container = get_parent()
 		mat.set_shader_param("intensity",MAX_INTENSITY)
 		mat.set_shader_param("outline_color", highlight_on)
 	else:
+		if(WorldHelper.hovered_container == get_parent()):
+			WorldHelper.hovered_container = null
 		mat.set_shader_param("intensity",0)
 		mat.set_shader_param("outline_color", highlight_off)

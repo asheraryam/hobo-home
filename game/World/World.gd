@@ -4,6 +4,8 @@ onready var pointer = get_node("Pointer")
 
 var current_pressed_object = null
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -45,12 +47,15 @@ func handle_drag_input(event):
 			if current_pressed_object and current_pressed_object.has_method("apply_drag_input"):
 				current_pressed_object.dragging = true
 				pointer._on_hover_end(current_pressed_object)
-		elif current_pressed_object != null:
-			current_pressed_object.dragging = false
-			nudge_object(current_pressed_object)
-			unsleep_all_objects()
-			pointer._on_hover_start(current_pressed_object)
-			current_pressed_object = null
+		else:
+			if current_pressed_object != null:
+				if WorldHelper.hovered_container:
+					WorldHelper.hovered_container.take_item(current_pressed_object)
+				current_pressed_object.dragging = false
+				nudge_object(current_pressed_object)
+				unsleep_all_objects()
+				pointer._on_hover_start(current_pressed_object)
+				current_pressed_object = null
 			
 func handle_rotation_input(event):
 	if not current_pressed_object or not current_pressed_object.has_method("apply_drag_input"):
