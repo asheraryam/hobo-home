@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export var hidden_when_used = false
 export var time_for_activity = -1
+export var weather_sensitive = false
 export var physics_enabled = true
 export var random_color = false
 var color_randomized = false
@@ -11,6 +12,8 @@ var translate_by = null
 var rotate_by = 0
 var ORIGINAL_GRAVITY = null
 var being_displayed = false
+
+var dead = false
 
 signal item_pressed(item)
 
@@ -90,3 +93,21 @@ func activate_used(default_time):
 	if hidden_when_used:
 		hide()
 	get_tree().create_timer(duration).connect("timeout", self, "show")
+
+func apply_weather():
+	if weather_sensitive and not being_displayed:
+#		var eff = WorldHelper.poof_effect.instance()
+#		add_child(eff)
+		dead = true
+		get_node("CollisionShape2D").disabled = true
+		get_node("icon").hide()
+#		yield(get_tree().create_timer(3), "timeout")
+		queue_free()
+#		remove_child(eff)
+#		WorldHelper.world.get_node("Effects").add_child(eff)
+#		eff.position = position
+#		WorldHelper.world.get_node("Effects").add_child(eff)
+#		eff.position = position
+#		hide()
+#		get_parent().remove_child(self)
+#		queue_free()

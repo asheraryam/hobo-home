@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -36,8 +36,9 @@
 [ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=34]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=35]
 [ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=36]
-[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=37]
-[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=39]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -456,7 +457,6 @@ position = Vector2( 84.7141, -12.2774 )
 polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -464,6 +464,7 @@ __meta__ = {
 all_items = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), null, null, null, null, null, null, null, null ]
 
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
+editor/display_folded = true
 position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
@@ -504,14 +505,23 @@ position = Vector2( 3.3443, -76.3573 )
 rotation = -2.61799
 texture = ExtResource( 36 )
 
-[node name="Hobo" parent="." instance=ExtResource( 37 )]
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 37 )]
+position = Vector2( 1071.22, 468.445 )
+
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 37 )]
+position = Vector2( 496.559, 575.586 )
+
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 37 )]
+position = Vector2( 1474.47, 589.223 )
+
+[node name="Hobo" parent="." instance=ExtResource( 38 )]
 
 [node name="Effects" type="Node2D" parent="."]
 position = Vector2( 91.8996, 614.164 )
 
 [node name="Weather" type="Node2D" parent="."]
 
-[node name="Rain" parent="Weather" instance=ExtResource( 38 )]
+[node name="Rain" parent="Weather" instance=ExtResource( 39 )]
 
 [node name="GreyEffect" type="ColorRect" parent="Weather"]
 margin_right = 1920.0

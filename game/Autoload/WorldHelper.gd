@@ -8,6 +8,10 @@ var parent_all_objects = null
 
 var world = null
 
+var poof_effect = preload("res://Interface/SmokeEffect.tscn")
+
+var rain_chance = 0.5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,6 +23,7 @@ func set_rain(value):
 		world.get_node("Backgrounds/Sky").animation = "dark"
 		world.get_node("Weather/Rain").emitting = true
 		world.get_node("SFX")._fade_in(world.get_node("SFX/rain"))
+		world.apply_weather_destruction()
 	else:
 		if world.get_node("Weather/Rain").emitting:
 			world.get_node("Weather/GreyEffect/AnimationPlayer").play("end")

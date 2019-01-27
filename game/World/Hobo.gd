@@ -31,7 +31,7 @@ func _on_next_desire_timeout():
 	move_to(Vector2(item_target.position.x, position.y))
 	
 func valid_desire_object(item):
-	return item and item.has_method("set_desired") and abs(item.position.y - position.y) < 200 and not item.being_displayed and not WorldHelper.pressed_object == item
+	return item and item.has_method("set_desired") and abs(item.position.y - position.y) < 200 and not item.being_displayed and not WorldHelper.pressed_object == item and not item.dead
 
 func move_to(pos):
 	$icon.play("walking")
