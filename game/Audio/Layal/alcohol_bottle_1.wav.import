@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/alcohol_bottle_1.wav-0dbfe895ca619195299e1af3d9b8d588.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/alcohol_bottle_1.wav"
+dest_files=[ "res://.import/alcohol_bottle_1.wav-0dbfe895ca619195299e1af3d9b8d588.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

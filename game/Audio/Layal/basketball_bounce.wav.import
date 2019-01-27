@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/basketball_bounce.wav-03d6c5c5bf165ab73a11931d45feec07.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/basketball_bounce.wav"
+dest_files=[ "res://.import/basketball_bounce.wav-03d6c5c5bf165ab73a11931d45feec07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

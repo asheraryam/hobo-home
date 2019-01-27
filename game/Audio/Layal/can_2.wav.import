@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/can_2.wav-1b976a74bb5c10bc288ad340b748c576.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/can_2.wav"
+dest_files=[ "res://.import/can_2.wav-1b976a74bb5c10bc288ad340b748c576.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
