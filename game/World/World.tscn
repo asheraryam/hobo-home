@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -331,15 +331,49 @@ color_ramp = SubResource( 16 )
 hue_variation = 1.0
 hue_variation_curve = SubResource( 18 )
 
-[sub_resource type="Gradient" id=22]
+[sub_resource type="Animation" id=22]
+
+resource_name = "end"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.117647 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.137255 ) ]
+}
+
+[sub_resource type="Gradient" id=24]
 
 colors = PoolColorArray( 0.329412, 0.458824, 0.776471, 0.788235, 0, 0.142158, 0.488281, 0.596078 )
 
-[sub_resource type="GradientTexture" id=23]
+[sub_resource type="GradientTexture" id=25]
 
-gradient = SubResource( 22 )
+gradient = SubResource( 24 )
 
-[sub_resource type="ParticlesMaterial" id=24]
+[sub_resource type="ParticlesMaterial" id=26]
 
 emission_shape = 2
 emission_box_extents = Vector3( 1200, 1, 1 )
@@ -350,7 +384,7 @@ initial_velocity = 175.0
 angular_velocity = 0.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 23 )
+color_ramp = SubResource( 25 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -374,6 +408,7 @@ __meta__ = {
 }
 
 [node name="SFX" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="drop" type="AudioStreamPlayer" parent="SFX"]
@@ -434,6 +469,7 @@ position = Vector2( 724.128, 78.1136 )
 shape = SubResource( 6 )
 
 [node name="AlleyFloor" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 671.569, 907.825 )
 physics_material_override = SubResource( 7 )
 
@@ -442,6 +478,7 @@ position = Vector2( 344.458, -45.1119 )
 shape = SubResource( 8 )
 
 [node name="Delete" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 95.0179, 650.509 )
 input_pickable = false
 collision_layer = 5
@@ -453,6 +490,7 @@ position = Vector2( 84.7141, -12.2774 )
 polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
 
 [node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
@@ -531,6 +569,15 @@ polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.0
 
 [node name="Weather" type="Node2D" parent="."]
 
+[node name="GreyEffect" type="ColorRect" parent="Weather"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Weather/GreyEffect"]
+anims/end = SubResource( 22 )
+anims/start = SubResource( 23 )
+
 [node name="Rain" type="Particles2D" parent="Weather"]
 position = Vector2( 887.896, 15.811 )
 emitting = false
@@ -540,7 +587,7 @@ speed_scale = 2.0
 randomness = 1.0
 fixed_fps = 60
 visibility_rect = Rect2( -100, -100, 200, 100 )
-process_material = SubResource( 24 )
+process_material = SubResource( 26 )
 texture = ExtResource( 42 )
 
 [node name="RainPos" type="Position2D" parent="Weather"]
