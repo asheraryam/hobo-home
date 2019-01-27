@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -46,15 +46,17 @@
 [ext_resource path="res://Props/Things/Boomerang.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Props/Things/Trashbag.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Props/Things/Pot.tscn" type="PackedScene" id=46]
-[ext_resource path="res://Props/Dumpster.gd" type="Script" id=47]
-[ext_resource path="res://Interface/SmokeEffect.tscn" type="PackedScene" id=48]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=49]
-[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=50]
-[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=51]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=52]
-[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=53]
-[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=54]
-[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=55]
+[ext_resource path="res://Props/Things/Table2.tscn" type="PackedScene" id=47]
+[ext_resource path="res://Props/Things/Mattress.tscn" type="PackedScene" id=48]
+[ext_resource path="res://Props/Dumpster.gd" type="Script" id=49]
+[ext_resource path="res://Interface/SmokeEffect.tscn" type="PackedScene" id=50]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=51]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=53]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=54]
+[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=55]
+[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=56]
+[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=57]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -72,7 +74,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 
-radius = 4.76621
+radius = 6.61834
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -346,7 +348,7 @@ tracks/3/keys = {
 [sub_resource type="ShaderMaterial" id=14]
 
 resource_local_to_scene = true
-shader = ExtResource( 49 )
+shader = ExtResource( 51 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
@@ -354,12 +356,12 @@ shader_param/outline_color = Color( 1, 1, 1, 0 )
 [sub_resource type="SpriteFrames" id=15]
 
 animations = [ {
-"frames": [ ExtResource( 50 ) ],
+"frames": [ ExtResource( 52 ) ],
 "loop": true,
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 51 ) ],
+"frames": [ ExtResource( 53 ) ],
 "loop": true,
 "name": "full",
 "speed": 5.0
@@ -425,7 +427,6 @@ __meta__ = {
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 
 [node name="Pointer" type="Area2D" parent="."]
-editor/display_folded = true
 input_pickable = false
 collision_layer = 7
 collision_mask = 7
@@ -435,6 +436,7 @@ script = ExtResource( 6 )
 shape = SubResource( 2 )
 
 [node name="Ledges" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -514,7 +516,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
-all_items = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), null ]
+all_items = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), null, null, null, null, null, null, null, null, null ]
 
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
 editor/display_folded = true
@@ -526,8 +528,8 @@ continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 47 )
-smoke_effect = ExtResource( 48 )
+script = ExtResource( 49 )
+smoke_effect = ExtResource( 50 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
 wait_time = 60.0
@@ -546,7 +548,7 @@ anims/trash_pressed = SubResource( 13 )
 material = SubResource( 14 )
 frames = SubResource( 15 )
 animation = "full"
-script = ExtResource( 52 )
+script = ExtResource( 54 )
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Objects/Dumpster"]
 position = Vector2( 3.85267, 41.9006 )
@@ -556,7 +558,7 @@ shape = SubResource( 16 )
 visible = false
 position = Vector2( 3.3443, -76.3573 )
 rotation = -2.61799
-texture = ExtResource( 53 )
+texture = ExtResource( 55 )
 
 [node name="Bottle" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 1258.23, 730.032 )
@@ -591,14 +593,14 @@ rotation = 1.51656
 position = Vector2( 1156.9, 766.877 )
 rotation = 1.51656
 
-[node name="Hobo" parent="." instance=ExtResource( 54 )]
+[node name="Hobo" parent="." instance=ExtResource( 56 )]
 
 [node name="Effects" type="Node2D" parent="."]
 position = Vector2( 91.8996, 614.164 )
 
 [node name="Weather" type="Node2D" parent="."]
 
-[node name="Rain" parent="Weather" instance=ExtResource( 55 )]
+[node name="Rain" parent="Weather" instance=ExtResource( 57 )]
 
 [node name="GreyEffect" type="ColorRect" parent="Weather"]
 margin_right = 1920.0
