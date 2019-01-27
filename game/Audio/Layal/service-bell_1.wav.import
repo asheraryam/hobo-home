@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/service-bell_1.wav-b904119d9d6c21c0f299fbbc551b5bbd.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/service-bell_1.wav"
+dest_files=[ "res://.import/service-bell_1.wav-b904119d9d6c21c0f299fbbc551b5bbd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

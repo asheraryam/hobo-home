@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -33,11 +33,11 @@
 [ext_resource path="res://Props/Things/Guitar.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Props/Things/Pillow.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Props/Dumpster.gd" type="Script" id=33]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=34]
-[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=36]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=37]
-[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=38]
+[ext_resource path="res://Interface/SmokeEffect.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=35]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=37]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=38]
 [ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=39]
 [ext_resource path="res://World/Hobo.gd" type="Script" id=40]
 [ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=41]
@@ -258,10 +258,65 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=27]
+
+resource_name = "trash_pressed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 26.5929 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("icon:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("icon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "smoke_effect"
+} ]
+}
+
 [sub_resource type="ShaderMaterial" id=12]
 
 resource_local_to_scene = true
-shader = ExtResource( 34 )
+shader = ExtResource( 35 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
@@ -269,12 +324,12 @@ shader_param/outline_color = Color( 1, 1, 1, 0 )
 [sub_resource type="SpriteFrames" id=13]
 
 animations = [ {
-"frames": [ ExtResource( 35 ) ],
+"frames": [ ExtResource( 36 ) ],
 "loop": true,
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ) ],
+"frames": [ ExtResource( 37 ) ],
 "loop": true,
 "name": "full",
 "speed": 5.0
@@ -283,53 +338,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=14]
 
 extents = Vector2( 138.283, 81.3469 )
-
-[sub_resource type="Gradient" id=15]
-
-colors = PoolColorArray( 1, 1, 1, 1, 0.509804, 0.509804, 0.509804, 0 )
-
-[sub_resource type="GradientTexture" id=16]
-
-gradient = SubResource( 15 )
-
-[sub_resource type="Curve" id=17]
-
-min_value = -1.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=18]
-
-curve = SubResource( 17 )
-
-[sub_resource type="Curve" id=19]
-
-_data = [ Vector2( 0, 0.2888 ), 0.0, 0.0, 0, 0, Vector2( 0.982422, 0.533 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=20]
-
-curve = SubResource( 19 )
-
-[sub_resource type="ParticlesMaterial" id=21]
-
-emission_shape = 2
-emission_box_extents = Vector3( 2, 2, 2 )
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 90.0
-initial_velocity_random = 0.5
-angular_velocity = 50.0
-angular_velocity_random = 0.1
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -15.0
-angle = 360.0
-angle_random = 0.5
-scale = 0.5
-scale_random = 0.5
-scale_curve = SubResource( 20 )
-color_ramp = SubResource( 16 )
-hue_variation = 1.0
-hue_variation_curve = SubResource( 18 )
 
 [sub_resource type="Gradient" id=24]
 
@@ -507,6 +515,7 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 33 )
+smoke_effect = ExtResource( 34 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
 wait_time = 60.0
@@ -519,32 +528,22 @@ position = Vector2( 0.255234, -188.844 )
 playback_speed = 2.0
 anims/drop_trash = SubResource( 10 )
 anims/filling_up = SubResource( 11 )
+anims/trash_pressed = SubResource( 27 )
 
 [node name="icon" type="AnimatedSprite" parent="Objects/Dumpster"]
 material = SubResource( 12 )
 frames = SubResource( 13 )
-animation = "empty"
-script = ExtResource( 37 )
+animation = "full"
+script = ExtResource( 38 )
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Objects/Dumpster"]
 position = Vector2( 3.85267, 41.9006 )
 shape = SubResource( 14 )
 
-[node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
-position = Vector2( -6.36548, -34.5439 )
-rotation = -1.58195
-emitting = false
-lifetime = 5.0
-one_shot = true
-speed_scale = 10.0
-explosiveness = 1.0
-randomness = 0.5
-process_material = SubResource( 21 )
-texture = ExtResource( 38 )
-
 [node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
-position = Vector2( -14.1879, -725.048 )
-rotation = 0.532982
+visible = false
+position = Vector2( 3.3443, -76.3573 )
+rotation = -2.61799
 texture = ExtResource( 39 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
@@ -566,6 +565,9 @@ texture = ExtResource( 41 )
 polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
 
 [node name="walk_tween" type="Tween" parent="Hobo"]
+
+[node name="Effects" type="Node2D" parent="."]
+position = Vector2( 91.8996, 614.164 )
 
 [node name="Weather" type="Node2D" parent="."]
 

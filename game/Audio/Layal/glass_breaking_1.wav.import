@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/glass_breaking_1.wav-4c6ba310090d605e05e1b51e7fb9c846.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/glass_breaking_1.wav"
+dest_files=[ "res://.import/glass_breaking_1.wav-4c6ba310090d605e05e1b51e7fb9c846.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

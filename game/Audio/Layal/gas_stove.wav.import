@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gas_stove.wav-041a083084654f5316a79c39b76f4f97.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/gas_stove.wav"
+dest_files=[ "res://.import/gas_stove.wav-041a083084654f5316a79c39b76f4f97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

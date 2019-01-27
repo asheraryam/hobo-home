@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phone_dial_1.wav-e292cf93ed439984f3b4b867539cc640.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/phone_dial_1.wav"
+dest_files=[ "res://.import/phone_dial_1.wav-e292cf93ed439984f3b4b867539cc640.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

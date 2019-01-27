@@ -2,6 +2,11 @@ extends RigidBody2D
 
 var displayed_item
 
+export var max_next_time = 90
+export var min_next_time = 45
+
+export(PackedScene) var smoke_effect = null
+
 var item_pool = []
 var item_pool_length = 10
 var display_index = 0
@@ -18,6 +23,7 @@ func activate():
 		show_item_from_pool()
 	
 func show_item_from_pool():
+	$AnimationPlayer.play("trash_pressed")
 	if displayed_item:
 		displayed_item.being_displayed = false
 		displayed_item.get_parent().remove_child(displayed_item)
@@ -39,6 +45,8 @@ func populate_pool():
 #	WorldHelper.world.get_node("SFX/more_trash").play()
 	$AnimationPlayer.play("drop_trash")
 	yield($AnimationPlayer,"animation_finished")
+	$next_trash.wait_time = (randi() % (max_next_time - min_next_time)) + min_next_time
+	
 	if(randf() > 0.8):
 		WorldHelper.set_rain(true)
 	else:
@@ -80,7 +88,6 @@ func display_item(thing):
 func displayed_pressed(item):
 	item.disconnect("item_pressed", self, "displayed_pressed")
 	if item == displayed_item:
-		$SmokeEffect.emitting = false
 		var index = item_pool.find(displayed_item)
 		if index > -1:
 			item_pool.remove(index)
@@ -104,4 +111,6 @@ func _on_next_trash_timeout():
 	populate_pool()
 
 func smoke_effect():
-	$SmokeEffect.emitting = true
+	var effect = smoke_effect.instance()
+	WorldHelper.world.get_node("Effects").add_child(effect)
+
