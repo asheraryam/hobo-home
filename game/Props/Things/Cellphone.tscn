@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
-[ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Audio/interface/more_trash.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sprites/objects/mug_1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/mug_2.png" type="Texture" id=5]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=6]
+[ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Layal/phone_dial_1.wav" type="AudioStream" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -19,7 +20,7 @@ shader_param/outline_color = Color( 255, 255, 255, 0 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -27,25 +28,28 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=3]
 
-extents = Vector2( 31.4149, 31.412 )
+extents = Vector2( 23.8141, 22.4946 )
 
-[node name="Jabberwocky" type="RigidBody2D"]
+[node name="Bottle" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
+continuous_cd = 1
+contacts_reported = 5
+contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.04581, -3.66026 )
 shape = SubResource( 3 )
 
-[node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
+[node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -20.0
+stream = ExtResource( 8 )
 

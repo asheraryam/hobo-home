@@ -37,8 +37,6 @@ func activate():
 	if physics_enabled:
 		reset_gravity()
 	emit_signal("item_pressed", self)
-
-
 		
 
 func _integrate_forces(state):
@@ -91,9 +89,9 @@ func activate_used(default_time):
 	if sound:
 		sound.play()
 	if get_node("SFX"):
-		for node in get_node("SFX").get_children():
-			if node.has_method("play"):
-				node.play()
+		var all = get_node("SFX").get_children()
+		var index = randi() % all.size()
+		all[index].play()
 	var duration = time_for_activity
 	if(duration <0):
 		duration = default_time
@@ -109,6 +107,10 @@ func apply_weather():
 		get_node("CollisionShape2D").disabled = true
 		get_node("icon").hide()
 #		yield(get_tree().create_timer(3), "timeout")
+		var hobo=WorldHelper.world.get_node("Hobo")
+		if(hobo.target_item and hobo.target_item == self):
+			hobo.hobo.get_node("moving").disconnect("timeout", self, "target_reached")
+			hobo.get_node("usage_timer").disconnect("timeout", self, "idling")
 		queue_free()
 #		remove_child(eff)
 #		WorldHelper.world.get_node("Effects").add_child(eff)
