@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snoring_1.wav-d23f4b172815e59b22803e381074f016.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/snoring_1.wav"
+dest_files=[ "res://.import/snoring_1.wav-d23f4b172815e59b22803e381074f016.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
