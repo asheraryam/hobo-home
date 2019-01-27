@@ -8,9 +8,10 @@
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Audio/Layal/barbell_1.wav" type="AudioStream" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
-extents = Vector2( 42.3186, 19.5031 )
+radius = 27.2581
+height = 37.9702
 
 [sub_resource type="ShaderMaterial" id=2]
 
