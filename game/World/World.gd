@@ -45,6 +45,11 @@ func handle_press_input(event):
 					WorldHelper.pressed_object.activate()
 		else:
 			if WorldHelper.pressed_object != null:
+				if WorldHelper.pressed_object.has_method("set_framed") and WorldHelper.hovered_object:
+					if  "use_as_frame" in WorldHelper.hovered_object:
+						if(WorldHelper.hovered_object.use_as_frame):
+							WorldHelper.pressed_object.mode = RigidBody2D.MODE_STATIC
+						WorldHelper.pressed_object.set_framed(WorldHelper.hovered_object.use_as_frame)
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
 					if WorldHelper.pressed_object.physics_enabled:
 						$SFX/drop.play()

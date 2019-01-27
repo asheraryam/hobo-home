@@ -7,6 +7,9 @@ export var physics_enabled = true
 export(String) var usage_animation = "default"
 export var random_color = false
 var color_randomized = false
+export var use_as_frame = false
+
+var inside_frame = false
 
 var dragging = false
 var translate_by = null
@@ -35,11 +38,14 @@ func activate():
 		reset_gravity()
 	emit_signal("item_pressed", self)
 
+
+		
+
 func _integrate_forces(state):
 	apply_drag_input(state)
 
 func apply_drag_input(state):
-	if dragging or being_displayed:
+	if dragging or being_displayed or inside_frame:
 		gravity_scale = 0
 		state.set_linear_velocity(Vector2(0,0))
 		state.set_angular_velocity(0)
@@ -112,3 +118,6 @@ func apply_weather():
 #		hide()
 #		get_parent().remove_child(self)
 #		queue_free()
+
+func set_framed(value):
+	inside_frame = value
