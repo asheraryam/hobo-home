@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -40,9 +40,8 @@
 [ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=38]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=39]
 [ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=40]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=41]
-[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=42]
-[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Props/Hobo.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Props/Rain.tscn" type="PackedScene" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -522,23 +521,14 @@ position = Vector2( 3.3443, -76.3573 )
 rotation = -2.61799
 texture = ExtResource( 40 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 41 )]
-position = Vector2( 1071.22, 468.445 )
-
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 41 )]
-position = Vector2( 496.559, 575.586 )
-
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 41 )]
-position = Vector2( 1474.47, 589.223 )
-
-[node name="Hobo" parent="." instance=ExtResource( 42 )]
+[node name="Hobo" parent="." instance=ExtResource( 41 )]
 
 [node name="Effects" type="Node2D" parent="."]
 position = Vector2( 91.8996, 614.164 )
 
 [node name="Weather" type="Node2D" parent="."]
 
-[node name="Rain" parent="Weather" instance=ExtResource( 43 )]
+[node name="Rain" parent="Weather" instance=ExtResource( 42 )]
 
 [node name="GreyEffect" type="ColorRect" parent="Weather"]
 margin_right = 1920.0
