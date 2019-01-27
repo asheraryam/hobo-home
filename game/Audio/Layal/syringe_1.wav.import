@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/syringe_1.wav-202c42ecfde224b9e3c1db1cb1cd3e4d.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/syringe_1.wav"
+dest_files=[ "res://.import/syringe_1.wav-202c42ecfde224b9e3c1db1cb1cd3e4d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

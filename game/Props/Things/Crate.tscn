@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Sprites/objects/crate.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Layal/crate_1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Layal/crate_2.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -47,4 +49,12 @@ frames = SubResource( 3 )
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource( 8 )
 

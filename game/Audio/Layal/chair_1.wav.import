@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chair_1.wav-1d5b03db9cc9867b61c18a08b5045b78.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/chair_1.wav"
+dest_files=[ "res://.import/chair_1.wav-1d5b03db9cc9867b61c18a08b5045b78.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

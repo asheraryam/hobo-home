@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/keys_inhand.wav-9677154655a0e56df2a40c17c884fcfc.sample"
+path="res://.import/crate_2.wav-04715f60ff3a9c753f4dbc1d040a6bf7.sample"
 
 [deps]
 
-source_file="res://Audio/Layal/keys_inhand.wav"
-dest_files=[ "res://.import/keys_inhand.wav-9677154655a0e56df2a40c17c884fcfc.sample" ]
+source_file="res://Audio/Layal/crate_2.wav"
+dest_files=[ "res://.import/crate_2.wav-04715f60ff3a9c753f4dbc1d040a6bf7.sample" ]
 
 [params]
 

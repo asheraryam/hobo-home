@@ -8,10 +8,6 @@
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=6]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-extents = Vector2( 15.6953, 22.1009 )
-
 [sub_resource type="ShaderMaterial" id=2]
 
 resource_local_to_scene = true
@@ -29,6 +25,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 23.8141, 22.4946 )
+
 [node name="Bottle" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
@@ -38,13 +38,14 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
 frames = SubResource( 3 )
 script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.04581, -3.66026 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
 
