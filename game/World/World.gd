@@ -91,6 +91,10 @@ func handle_drag_and_hover_input(event):
 
 func refresh_hover():
 	var result = find_colliding_object()
+#	if WorldHelper.pressed_object:
+#		if "use_as_frame" in result and WorldHelper.hovered_object and WorldHelper.pressed_object == result:
+#			return
+		
 	if WorldHelper.hovered_object != result:
 		if result and not (result is RigidBody2D):
 			return

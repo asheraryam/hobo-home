@@ -3,13 +3,14 @@
 [ext_resource path="res://Props/Things/Cushion.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
-[ext_resource path="res://Sprites/objects/ladder.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/boomerang.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=5]
 
-extents = Vector2( 34.3351, 103.16 )
+radius = 30.6942
+height = 76.093
 
 [sub_resource type="ShaderMaterial" id=2]
 
@@ -38,7 +39,8 @@ can_sleep = false
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+rotation = 1.57081
+shape = SubResource( 5 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )

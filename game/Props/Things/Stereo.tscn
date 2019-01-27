@@ -53,4 +53,5 @@ script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
+volume_db = -10.0
 
