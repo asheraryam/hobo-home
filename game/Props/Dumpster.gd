@@ -45,6 +45,8 @@ func populate_pool():
 #	WorldHelper.world.get_node("SFX/more_trash").play()
 	$AnimationPlayer.play("drop_trash")
 	yield($AnimationPlayer,"animation_finished")
+	if WorldHelper.world.get_node("Hobo").completely_aimless():
+		WorldHelper.world.get_node("Hobo")._on_next_desire_timeout()
 	$next_trash.wait_time = (randi() % (max_next_time - min_next_time)) + min_next_time
 	
 	if(randf() > 0.8):
