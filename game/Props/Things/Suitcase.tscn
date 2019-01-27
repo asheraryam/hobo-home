@@ -1,16 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
-[ext_resource path="res://Sprites/objects/frame.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/suitcase.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Audio/Layal/frame_hang_1.wav" type="AudioStream" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-extents = Vector2( 65.1515, 94.0552 )
 
 [sub_resource type="ShaderMaterial" id=2]
 
@@ -29,9 +24,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 62.1013, 56.0709 )
+
 [node name="Bottle" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 4
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
 continuous_cd = 1
@@ -39,21 +36,15 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
-physics_enabled = false
-use_as_frame = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
 frames = SubResource( 3 )
 script = ExtResource( 5 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 0 )
+shape = SubResource( 4 )
+
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
-
-[node name="SFX" type="Node" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 7 )
 

@@ -3,14 +3,14 @@
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
-[ext_resource path="res://Sprites/objects/frame.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/poster.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Audio/Layal/frame_hang_1.wav" type="AudioStream" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 
-extents = Vector2( 65.1515, 94.0552 )
+extents = Vector2( 76.5275, 93.4864 )
 
 [sub_resource type="ShaderMaterial" id=2]
 
@@ -40,10 +40,9 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 physics_enabled = false
-use_as_frame = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
