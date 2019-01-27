@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dumpster.wav-b1523af49507374d4abc6d02abb02bf7.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/Dumpster.wav"
+dest_files=[ "res://.import/Dumpster.wav-b1523af49507374d4abc6d02abb02bf7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

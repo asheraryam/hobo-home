@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dropping_trash_dumpster.wav-58bc56ee3070265db57a0aa3c70fab32.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/dropping_trash_dumpster.wav"
+dest_files=[ "res://.import/dropping_trash_dumpster.wav-58bc56ee3070265db57a0aa3c70fab32.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
