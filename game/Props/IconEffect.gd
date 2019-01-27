@@ -15,9 +15,12 @@ func _ready():
 			randomized_frame = true
 			frame = randi() % frames.get_frame_count("default")
 #	mat = ShaderMaterial.new()
-	mat.set_shader_param("outline_color", highlight_off)
+	if(mat):
+		mat.set_shader_param("outline_color", highlight_off)
 
 func set_hover(active):
+	if not mat:
+		return
 	if(active):
 		if(get_parent().has_method("take_item")):
 			WorldHelper.hovered_container = get_parent()
