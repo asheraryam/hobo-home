@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-
+export var hidden_when_used = false
 export var time_for_activity = -1
 export var physics_enabled = true
 export var random_color = false
@@ -75,3 +75,14 @@ func set_hover(value):
 
 func set_desired(value):
 	pass
+
+func activate_used(default_time):
+	var sound = get_node("AudioStreamPlayer")
+	if sound:
+		sound.play()
+	var duration = time_for_activity
+	if(duration <0):
+		duration = default_time
+	if hidden_when_used:
+		hide()
+	get_tree().create_timer(duration).connect("timeout", self, "show")

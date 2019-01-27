@@ -25,7 +25,7 @@ func handle_press_input(event):
 	if event.button_index  == BUTTON_LEFT:
 		pressed = event.is_pressed()
 		if pressed:
-			if WorldHelper.hovered_object:
+			if WorldHelper.hovered_object and WorldHelper.hovered_object.visible:
 				WorldHelper.pressed_object = WorldHelper.hovered_object
 				WorldHelper.hovered_object = null
 #				WorldHelper.pressed_object.hide()
@@ -40,7 +40,7 @@ func handle_press_input(event):
 						WorldHelper.pressed_object.set_hover(false)
 					pointer._on_hover_end(WorldHelper.pressed_object)
 				if WorldHelper.pressed_object == $Hobo.item_target:
-					$Hobo._on_next_desire_timeout()
+					$Hobo.target_interrupted()
 				if WorldHelper.pressed_object.has_method("activate"):
 					WorldHelper.pressed_object.activate()
 		else:
