@@ -49,11 +49,11 @@ script = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
 
-[node name="Node" type="Node" parent="."]
+[node name="SFX" type="Node" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
 
