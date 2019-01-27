@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -8,12 +8,15 @@
 [ext_resource path="res://Sprites/objects/can_3.png" type="Texture" id=6]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=7]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Layal/can_1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Layal/can_2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Layal/can_3.wav" type="AudioStream" id=11]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 15.6953, 22.1009 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=2]
 
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -40,12 +43,23 @@ can_sleep = false
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 2 )
 frames = SubResource( 3 )
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 8 )]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 11 )
 
