@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -42,7 +42,29 @@
 [ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=40]
 [ext_resource path="res://World/Hobo.gd" type="Script" id=41]
 [ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_00.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_01.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_02.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_03.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_04.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_05.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_06.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_07.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_08.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_09.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_10.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_11.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_12.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_13.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_14.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_15.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_16.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_17.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_18.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_19.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_20.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/WalkExport_21.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=65]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -340,6 +362,20 @@ animations = [ {
 
 extents = Vector2( 138.283, 81.3469 )
 
+[sub_resource type="SpriteFrames" id=28]
+
+animations = [ {
+"frames": [ ExtResource( 42 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
+"loop": true,
+"name": "walking",
+"speed": 15.0
+} ]
+
 [sub_resource type="Gradient" id=24]
 
 colors = PoolColorArray( 0.329412, 0.458824, 0.776471, 0.788235, 0, 0.142158, 0.488281, 0.596078 )
@@ -557,10 +593,14 @@ rotation = -2.61799
 texture = ExtResource( 40 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
-position = Vector2( 831.595, 658.645 )
+position = Vector2( 836.355, 638.018 )
 collision_layer = 8
 collision_mask = 8
 script = ExtResource( 41 )
+
+[node name="icon" type="AnimatedSprite" parent="Hobo"]
+frames = SubResource( 28 )
+animation = "walking"
 
 [node name="next_desire" type="Timer" parent="Hobo"]
 wait_time = 5.0
@@ -569,9 +609,6 @@ autostart = true
 
 [node name="moving" type="Timer" parent="Hobo"]
 one_shot = true
-
-[node name="Sprite" type="Sprite" parent="Hobo"]
-texture = ExtResource( 42 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
 polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
@@ -593,7 +630,7 @@ randomness = 1.0
 fixed_fps = 60
 visibility_rect = Rect2( -100, -100, 200, 100 )
 process_material = SubResource( 26 )
-texture = ExtResource( 43 )
+texture = ExtResource( 65 )
 
 [node name="GreyEffect" type="ColorRect" parent="Weather"]
 margin_right = 1920.0

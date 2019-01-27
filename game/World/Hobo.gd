@@ -34,6 +34,8 @@ func valid_desire_object(item):
 	return item and item.has_method("set_desired") and abs(item.position.y - position.y) < 200 and not item.being_displayed and not WorldHelper.pressed_object == item
 
 func move_to(pos):
+	$icon.play("walking")
+	$icon.flip_h = position.x - pos.x < 0
 	var walk_duration = abs(position.x - pos.x)/100
 	$walk_tween.interpolate_property(self, "position",
 	position, pos, walk_duration,
@@ -46,6 +48,7 @@ func move_to(pos):
 	$moving.connect("timeout", self, "target_reached", [item_target.name])
 
 func target_reached(thing):
+	$icon.play("default")
 	moving = false
 	var time_to_next = default_action_time
 	if item_target and item_target.name == thing:
@@ -60,6 +63,7 @@ func target_reached(thing):
 		_on_next_desire_timeout()
 
 func target_interrupted():
+	$icon.play("default")
 	$moving.disconnect("timeout", self, "target_reached")
 	moving = false
 	$moving.stop()
