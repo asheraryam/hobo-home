@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/plant_1.wav-e7886c105476ba6e8c12169f20d778a7.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/plant_1.wav"
+dest_files=[ "res://.import/plant_1.wav-e7886c105476ba6e8c12169f20d778a7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

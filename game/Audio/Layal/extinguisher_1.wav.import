@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/extinguisher_1.wav-9b2bc38ecc999ccf84a6bab1b43cc56d.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/extinguisher_1.wav"
+dest_files=[ "res://.import/extinguisher_1.wav-9b2bc38ecc999ccf84a6bab1b43cc56d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
