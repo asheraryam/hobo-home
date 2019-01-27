@@ -80,6 +80,10 @@ func activate_used(default_time):
 	var sound = get_node("AudioStreamPlayer")
 	if sound:
 		sound.play()
+	if get_node("SFX"):
+		for node in get_node("SFX").get_children():
+			if node.has_method("play"):
+				node.play()
 	var duration = time_for_activity
 	if(duration <0):
 		duration = default_time
