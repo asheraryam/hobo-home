@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Sprites/objects/mug_2.png" type="Texture" id=5]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=6]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Layal/mug_2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Layal/mug_1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Layal/cup_sip.wav" type="AudioStream" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -48,4 +51,15 @@ position = Vector2( 1.04581, -3.66026 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
 
