@@ -3,7 +3,7 @@ extends RigidBody2D
 
 export var time_for_activity = -1
 export var physics_enabled = true
-export var random_color = true
+export var random_color = false
 var color_randomized = false
 
 var dragging = false

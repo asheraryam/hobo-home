@@ -49,8 +49,17 @@ func populate_pool():
 		
 	if item_pool_length > item_pool.size():
 		for i in range(item_pool_length - item_pool.size()):
-			var thing = random_object.instance()
-			item_pool.append(thing)
+			var all = WorldHelper.parent_all_objects.all_items
+			var index = randi() % all.size()
+			var random_object = all[index]
+			var tries = 0
+			while not random_object:
+				index = randi() % all.size()
+				random_object = all[index]
+				tries += 1
+				if(tries > 1000):
+					return
+			item_pool.append(random_object.instance())
 
 func display_item(thing):
 	displayed_item = thing
