@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/page_turn_2.wav-901c57e1c699ef5de75cb828d484dac2.sample"
+
+[deps]
+
+source_file="res://Sprites/Layal/page_turn_2.wav"
+dest_files=[ "res://.import/page_turn_2.wav-901c57e1c699ef5de75cb828d484dac2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

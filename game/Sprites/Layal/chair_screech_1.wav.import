@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chair_screech_1.wav-ebedde7b259f5ab642d2b2f1d38fa55d.sample"
+
+[deps]
+
+source_file="res://Sprites/Layal/chair_screech_1.wav"
+dest_files=[ "res://.import/chair_screech_1.wav-ebedde7b259f5ab642d2b2f1d38fa55d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
