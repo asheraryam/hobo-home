@@ -10,7 +10,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 92.4541, 65.0464 )
+extents = Vector2( 65.1515, 94.0552 )
 
 [sub_resource type="ShaderMaterial" id=2]
 
@@ -47,7 +47,6 @@ shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
-rotation = 1.5708
 frames = SubResource( 3 )
 script = ExtResource( 5 )
 
