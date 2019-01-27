@@ -206,6 +206,20 @@ tracks/7/keys = {
 "method": "smoke_effect"
 } ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath("../../SFX")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trash_filled"
+} ]
+}
 
 [sub_resource type="Animation" id=11]
 
@@ -468,7 +482,6 @@ __meta__ = {
 all_items = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), null, null, null, null ]
 
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
-editor/display_folded = true
 position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2

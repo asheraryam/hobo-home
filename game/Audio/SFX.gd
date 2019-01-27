@@ -34,3 +34,6 @@ func _mute(layer):
 #unmute only the specified layer
 func _unmute(layer):
 	layer.set_volume_db(default_vol)
+
+func trash_filled():
+	$trashfall2dumspter.play()
