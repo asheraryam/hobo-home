@@ -87,6 +87,9 @@ func handle_drag_and_hover_input(event):
 func refresh_hover():
 	var result = find_colliding_object()
 	if WorldHelper.hovered_object != result:
+		if result and not (result is RigidBody2D):
+			return
+
 		if WorldHelper.hovered_object and WorldHelper.hovered_object.has_method("set_hover"):
 			WorldHelper.hovered_object.set_hover(false)
 		

@@ -3,7 +3,7 @@
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
 [ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
-[ext_resource path="res://Sprites/objects/teddybear.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/guitar.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 
@@ -26,10 +26,10 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=3]
 
-radius = 34.7819
-height = 38.264
+radius = 38.5959
+height = 138.386
 
-[node name="Bottle" type="RigidBody2D"]
+[node name="Book" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
 continuous_cd = 1

@@ -11,11 +11,7 @@ var random_object = preload("res://Props/Things/Jabberwocky.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	
-func take_item(item):
-	if "being_displayed" in item:
-		item.get_parent().remove_child(item)
-	
+
 func activate():
 	if item_pool.size() >0 and not $AnimationPlayer.is_playing():
 		show_item_from_pool()
@@ -98,10 +94,6 @@ func set_hover(value):
 	var sprite = get_node("icon")
 	if sprite and sprite.has_method("set_hover"):
 		sprite.set_hover(value)
-
-func _on_Area2D_body_entered(body):
-	if "being_displayed" in body:
-		take_item(body)
 		
 func _on_next_trash_timeout():
 #	$next_trash.start()
