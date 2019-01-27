@@ -1,22 +1,38 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
-[ext_resource path="res://Audio/interface/drop.wav" type="AudioStream" id=2]
-[ext_resource path="res://Audio/interface/more_trash.wav" type="AudioStream" id=3]
-[ext_resource path="res://Audio/interface/selected.wav" type="AudioStream" id=4]
-[ext_resource path="res://Interface/Pointer.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=6]
-[ext_resource path="res://Props/Dumpster.gd" type="Script" id=7]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=8]
-[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=10]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=11]
-[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=13]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=14]
-[ext_resource path="res://World/Hobo.gd" type="Script" id=15]
-[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Background/weather_rain.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=4]
+[ext_resource path="res://Audio/interface/drop.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/interface/more_trash.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/interface/selected.wav" type="AudioStream" id=7]
+[ext_resource path="res://Interface/Pointer.gd" type="Script" id=8]
+[ext_resource path="res://Props/Dumpster.gd" type="Script" id=9]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=10]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=12]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=15]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=16]
+[ext_resource path="res://World/Hobo.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=22]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "light",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "dark",
+"speed": 5.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -204,7 +220,7 @@ tracks/3/keys = {
 [sub_resource type="ShaderMaterial" id=10]
 
 resource_local_to_scene = true
-shader = ExtResource( 8 )
+shader = ExtResource( 10 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
@@ -212,12 +228,12 @@ shader_param/outline_color = Color( 1, 1, 1, 0 )
 [sub_resource type="SpriteFrames" id=11]
 
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "full",
 "speed": 5.0
@@ -294,34 +310,41 @@ color_ramp = SubResource( 20 )
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="SFX" type="Node" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
 
-[node name="drop" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 2 )
+[node name="Sky" type="AnimatedSprite" parent="Backgrounds"]
+frames = SubResource( 22 )
+animation = "light"
+centered = false
 
-[node name="more_trash" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 3 )
-
-[node name="selected" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 4 )
-
-[node name="Pointer" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
-shape = SubResource( 1 )
-
-[node name="BG City" type="TextureRect" parent="."]
+[node name="Building" type="TextureRect" parent="Backgrounds"]
 margin_right = 2467.0
 margin_bottom = 1080.0
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="drop" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 5 )
+
+[node name="more_trash" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="selected" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+
+[node name="Pointer" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
+shape = SubResource( 1 )
 
 [node name="Ledges" type="Node2D" parent="."]
 editor/display_folded = true
@@ -365,7 +388,6 @@ position = Vector2( 344.458, -45.1119 )
 shape = SubResource( 7 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -379,7 +401,7 @@ continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
 wait_time = 10.0
@@ -397,7 +419,7 @@ anims/filling_up = SubResource( 9 )
 material = SubResource( 10 )
 frames = SubResource( 11 )
 animation = "empty"
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
 collision_layer = 5
@@ -421,33 +443,33 @@ speed_scale = 10.0
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 18 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 
 [node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
 position = Vector2( -14.1879, -725.048 )
 rotation = 0.532982
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 1223.46, 143.026 )
 collision_layer = 4
 collision_mask = 4
 time_for_activity = 1
 physics_enabled = false
 
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 1105.14, 310.555 )
 
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 519.813, 379.146 )
 
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 1010.72, 400.612 )
 
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 852.002, 190.906 )
 
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 14 )]
+[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 16 )]
 position = Vector2( 579.608, 267.135 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
@@ -455,7 +477,7 @@ editor/display_folded = true
 position = Vector2( 831.595, 658.645 )
 collision_layer = 8
 collision_mask = 8
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 
 [node name="next_desire" type="Timer" parent="Hobo"]
 wait_time = 10.0
@@ -463,7 +485,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="Hobo"]
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
 polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
@@ -474,6 +496,7 @@ polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.0
 
 [node name="Rain" type="Particles2D" parent="Weather"]
 position = Vector2( 887.896, 15.811 )
+emitting = false
 amount = 550
 lifetime = 6.0
 speed_scale = 2.0
@@ -481,7 +504,7 @@ randomness = 1.0
 fixed_fps = 60
 visibility_rect = Rect2( -100, -100, 200, 100 )
 process_material = SubResource( 21 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="RainPos" type="Position2D" parent="Weather"]
 position = Vector2( 885.112, -206.703 )

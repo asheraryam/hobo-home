@@ -40,6 +40,13 @@ func populate_pool():
 #	WorldHelper.world.get_node("SFX/more_trash").play()
 	$AnimationPlayer.play("drop_trash")
 	yield($AnimationPlayer,"animation_finished")
+	if(randf() > 0.9):
+		WorldHelper.world.get_node("Backgrounds/Sky").animation = "dark"
+		WorldHelper.world.get_node("Weather/Rain").emitting = true
+	else:
+		WorldHelper.world.get_node("Backgrounds/Sky").animation = "light"
+		WorldHelper.world.get_node("Weather/Rain").emitting = false
+		
 	if item_pool_length > item_pool.size():
 		for i in range(item_pool_length - item_pool.size()):
 			var thing = random_object.instance()

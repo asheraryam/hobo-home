@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
+[ext_resource path="res://Sprites/objects/giraffe.png" type="Texture" id=4]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
+[ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/intensity = null
+shader_param/precision = 0.02
+shader_param/outline_color = Color( 255, 255, 255, 0 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Bottle" type="RigidBody2D"]
+physics_material_override = ExtResource( 1 )
+gravity_scale = 10.0
+continuous_cd = 1
+contacts_reported = 5
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="icon" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+frames = SubResource( 2 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -10.204, -54.7051, 8.56094, -61.1758, 23.4435, -57.6169, 24.7376, -50.1756, 10.8257, -40.1461, 19.8846, -1.64564, 39.2966, 45.9138, 22.7964, 56.2668, 12.4433, 46.8844, 9.85507, 63.3846, -12.7923, 67.5905, -21.2041, 56.5903, -29.9395, 59.1786, -38.9984, 53.6785, -25.0865, 19.0605, -1.79211, 2.5603 )
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
+

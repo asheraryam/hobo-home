@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=3]
+[ext_resource path="res://Sprites/objects/plant_1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/objects/plant_2.png" type="Texture" id=5]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=6]
+[ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/intensity = null
+shader_param/precision = 0.02
+shader_param/outline_color = Color( 255, 255, 255, 0 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Plant" type="RigidBody2D"]
+physics_material_override = ExtResource( 1 )
+gravity_scale = 10.0
+continuous_cd = 1
+contacts_reported = 5
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="icon" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+frames = SubResource( 2 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -31.4548, -40.9302, -20.7866, -50.447, 1.99467, -52.9504, 20.0194, -47.1925, 32.3562, -41.2798, 38.5449, -16.9009, 33.58, 8.19556, 25.0136, 51.2024, -22.0143, 51.2024, -30.231, 9.76897, -38.0604, -14.1471 )
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
+
