@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ladder.wav-e72b38bfc77e89b3120ac7a6e32380bb.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/ladder.wav"
+dest_files=[ "res://.import/ladder.wav-e72b38bfc77e89b3120ac7a6e32380bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/suitcase.wav-4b57736d99ba63a08a32c38eb4a1780e.sample"
+
+[deps]
+
+source_file="res://Audio/Layal/suitcase.wav"
+dest_files=[ "res://.import/suitcase.wav-4b57736d99ba63a08a32c38eb4a1780e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

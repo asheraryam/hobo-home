@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Sprites/objects/suitcase.png" type="Texture" id=4]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Layal/suitcase.wav" type="AudioStream" id=7]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -15,7 +16,7 @@ shader_param/intensity = null
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 255, 255, 255, 0 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
@@ -24,7 +25,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 62.1013, 56.0709 )
 
@@ -38,13 +39,18 @@ can_sleep = false
 script = ExtResource( 2 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
-material = SubResource( 2 )
-frames = SubResource( 3 )
+material = SubResource( 1 )
+frames = SubResource( 2 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
 
