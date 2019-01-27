@@ -6,23 +6,29 @@ var pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process(true)
 	set_process_input(true)
 	WorldHelper.world = self
 	WorldHelper.parent_all_objects = get_node("Objects")
 
+func _process(delta):
+	refresh_hover()
+
 func _input(event):
-	if event is InputEventMouseMotion:
-		handle_drag_and_hover_input(event)
 	if event is InputEventMouseButton:
 		handle_press_input(event)
 		handle_rotation_input(event)
+	if event is InputEventMouseMotion:
+		handle_drag_and_hover_input(event)
 
 func handle_press_input(event):
 	if event.button_index  == BUTTON_LEFT:
 		pressed = event.is_pressed()
 		if pressed:
-			WorldHelper.pressed_object = WorldHelper.hovered_object
-			if WorldHelper.pressed_object:
+			if WorldHelper.hovered_object:
+				WorldHelper.pressed_object = WorldHelper.hovered_object
+				WorldHelper.hovered_object = null
+#				WorldHelper.pressed_object.hide()
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
 					if WorldHelper.pressed_object.get_node("AnimationPlayer"):
 						WorldHelper.pressed_object.get_node("AnimationPlayer").stop()
@@ -30,7 +36,6 @@ func handle_press_input(event):
 					$SFX/selected.play()
 					WorldHelper.pressed_object.mode = RigidBody2D.MODE_RIGID
 					WorldHelper.pressed_object.dragging = true
-					WorldHelper.hovered_object = null
 					if(WorldHelper.pressed_object.has_method("set_hover")):
 						WorldHelper.pressed_object.set_hover(false)
 					pointer._on_hover_end(WorldHelper.pressed_object)
@@ -38,7 +43,6 @@ func handle_press_input(event):
 					$Hobo._on_next_desire_timeout()
 				if WorldHelper.pressed_object.has_method("activate"):
 					WorldHelper.pressed_object.activate()
-
 		else:
 			if WorldHelper.pressed_object != null:
 				if WorldHelper.pressed_object.has_method("apply_drag_input"):
@@ -85,9 +89,10 @@ func refresh_hover():
 	if WorldHelper.hovered_object != result:
 		if WorldHelper.hovered_object and WorldHelper.hovered_object.has_method("set_hover"):
 			WorldHelper.hovered_object.set_hover(false)
-		WorldHelper.hovered_object = result
+		
 		if result and result.has_method("set_hover") and WorldHelper.pressed_object != result:
 			result.set_hover(true)
+		WorldHelper.hovered_object = result
 
 func find_colliding_object():
 	var pointer_shape = pointer.shape_owner_get_shape(0,0)

@@ -77,6 +77,7 @@ func display_item(thing):
 	WorldHelper.parent_all_objects.add_child(displayed_item)
 	displayed_item.global_position = get_node("spawn_pos").global_position
 	if displayed_item.has_method("set_sleeping"):
+		displayed_item.can_sleep = false
 		displayed_item.set_sleeping(false)
 		
 func displayed_pressed(item):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
@@ -14,17 +14,29 @@
 [ext_resource path="res://Props/Things/Stool_A.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Props/Things/Plant.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Props/Things/Bottle.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Props/Dumpster.gd" type="Script" id=15]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=16]
-[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=18]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=19]
-[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=21]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=22]
-[ext_resource path="res://World/Hobo.gd" type="Script" id=23]
-[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=25]
+[ext_resource path="res://Props/Things/Barbell_S.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Props/Things/Can.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Props/Things/Cigs.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Props/Things/Crate.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Props/Things/Cutlery.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Props/Things/Giraffe.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Props/Things/Steak.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Props/Things/Stool_B.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Props/Things/Syringe.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Props/Things/Table.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Props/Things/Teddybear.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Props/Things/TV.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Props/Dumpster.gd" type="Script" id=27]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=28]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=30]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=31]
+[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=33]
+[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=34]
+[ext_resource path="res://World/Hobo.gd" type="Script" id=35]
+[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=37]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -224,7 +236,7 @@ tracks/3/keys = {
 [sub_resource type="ShaderMaterial" id=11]
 
 resource_local_to_scene = true
-shader = ExtResource( 16 )
+shader = ExtResource( 28 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
@@ -232,12 +244,12 @@ shader_param/outline_color = Color( 1, 1, 1, 0 )
 [sub_resource type="SpriteFrames" id=12]
 
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 30 ) ],
 "loop": true,
 "name": "full",
 "speed": 5.0
@@ -346,6 +358,7 @@ stream = ExtResource( 7 )
 
 [node name="Pointer" type="Area2D" parent="."]
 editor/display_folded = true
+input_pickable = false
 collision_layer = 7
 collision_mask = 7
 script = ExtResource( 8 )
@@ -398,7 +411,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
-all_items = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+all_items = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), null, null, null, null, null, null, null, null, null, null, null, null, null ]
 
 [node name="Dumpster" type="RigidBody2D" parent="Objects"]
 position = Vector2( 95.0179, 650.509 )
@@ -409,14 +422,14 @@ continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 15 )
+script = ExtResource( 27 )
 
 [node name="next_trash" type="Timer" parent="Objects/Dumpster"]
-wait_time = 10.0
+wait_time = 60.0
 autostart = true
 
 [node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
-position = Vector2( -16.4003, -190.694 )
+position = Vector2( 0.255234, -188.844 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/Dumpster"]
 playback_speed = 2.0
@@ -427,9 +440,10 @@ anims/filling_up = SubResource( 10 )
 material = SubResource( 11 )
 frames = SubResource( 12 )
 animation = "empty"
-script = ExtResource( 19 )
+script = ExtResource( 31 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Dumpster"]
+input_pickable = false
 collision_layer = 5
 collision_mask = 5
 
@@ -451,33 +465,33 @@ speed_scale = 10.0
 explosiveness = 1.0
 randomness = 0.5
 process_material = SubResource( 19 )
-texture = ExtResource( 20 )
+texture = ExtResource( 32 )
 
 [node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
 position = Vector2( -14.1879, -725.048 )
 rotation = 0.532982
-texture = ExtResource( 21 )
+texture = ExtResource( 33 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 1223.46, 143.026 )
 collision_layer = 4
 collision_mask = 4
 time_for_activity = 1
 physics_enabled = false
 
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 1105.14, 310.555 )
 
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 519.813, 379.146 )
 
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 1010.72, 400.612 )
 
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 852.002, 190.906 )
 
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 22 )]
+[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 34 )]
 position = Vector2( 579.608, 267.135 )
 
 [node name="Hobo" type="KinematicBody2D" parent="."]
@@ -485,7 +499,7 @@ editor/display_folded = true
 position = Vector2( 831.595, 658.645 )
 collision_layer = 8
 collision_mask = 8
-script = ExtResource( 23 )
+script = ExtResource( 35 )
 
 [node name="next_desire" type="Timer" parent="Hobo"]
 wait_time = 10.0
@@ -493,7 +507,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="Hobo"]
-texture = ExtResource( 24 )
+texture = ExtResource( 36 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
 polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
@@ -512,7 +526,7 @@ randomness = 1.0
 fixed_fps = 60
 visibility_rect = Rect2( -100, -100, 200, 100 )
 process_material = SubResource( 22 )
-texture = ExtResource( 25 )
+texture = ExtResource( 37 )
 
 [node name="RainPos" type="Position2D" parent="Weather"]
 position = Vector2( 885.112, -206.703 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -7,7 +7,11 @@
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 59.8251, 46.0828 )
+
+[sub_resource type="ShaderMaterial" id=2]
 
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -15,7 +19,7 @@ shader_param/intensity = null
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 255, 255, 255, 0 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
@@ -33,12 +37,13 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -60.2869, -23.8181, -11.3493, -24.0328, -24.6569, -65.2434, -4.26626, -27.6816, 14.8366, -54.2968, 1.95939, -23.4327, 60.5546, -23.6035, 61.6278, 67.1886, -60.9308, 67.8326 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.307358, 20.9003 )
+shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
-material = SubResource( 1 )
-frames = SubResource( 2 )
+material = SubResource( 2 )
+frames = SubResource( 3 )
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]

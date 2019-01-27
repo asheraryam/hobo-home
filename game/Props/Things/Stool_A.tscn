@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -25,10 +25,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 51.1496, 42.3903 )
+
 [node name="Bottle" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
-continuous_cd = 1
+continuous_cd = 2
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
@@ -39,8 +43,9 @@ material = SubResource( 1 )
 frames = SubResource( 2 )
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -52.7368, -37.1651, 33.0158, -41.1608, 53.3013, -36.8578, 53.6087, -20.2605, 27.4833, -18.109, 51.7645, 48.5874, -53.3515, 49.5095, -28.763, -16.5722, -53.0442, -19.6458 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.614731, 5.83978 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 7 )]
 
