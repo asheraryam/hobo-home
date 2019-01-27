@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 onready var mat = self.get_material()
 
@@ -6,8 +6,14 @@ var highlight_off = Color(255,255,255,0)
 var highlight_on = Color(100,100,100,99)
 var MAX_INTENSITY = 120
 
+var randomized_frame = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if frames.has_animation("default"):
+		if not randomized_frame:
+			randomized_frame = true
+			frame = randi() % frames.get_frame_count("default")
 #	mat = ShaderMaterial.new()
 	mat.set_shader_param("outline_color", highlight_off)
 

@@ -1,121 +1,604 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Background/BG City.jpg" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Props/Dumpster.gd" type="Script" id=4]
-[ext_resource path="res://Props/outline effect.shader" type="Shader" id=5]
-[ext_resource path="res://Sprites/dumpster.png" type="Texture" id=6]
-[ext_resource path="res://Props/IconEffect.gd" type="Script" id=7]
-[ext_resource path="res://Interface/Pointer.gd" type="Script" id=8]
-[ext_resource path="res://Props/Things/Jabberwocky.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Background/weather_sunny.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Background/weather_rain.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Background/background.png" type="Texture" id=4]
+[ext_resource path="res://Audio/SFX.gd" type="Script" id=5]
+[ext_resource path="res://Audio/interface/drop.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/interface/more_trash.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/interface/selected.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/weather/rainmusic.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Interface/Pointer.gd" type="Script" id=10]
+[ext_resource path="res://World/Objects.gd" type="Script" id=11]
+[ext_resource path="res://Props/Things/Barbell_L.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Props/Things/Book.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Props/Things/Stool_A.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Props/Things/Plant.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Props/Things/Bottle.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Props/Things/Barbell_S.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Props/Things/Can.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Props/Things/Cigs.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Props/Things/Crate.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Props/Things/Cutlery.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Props/Things/Giraffe.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Props/Things/Steak.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Props/Things/Stool_B.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Props/Things/Syringe.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Props/Things/Table.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Props/Things/Teddybear.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Props/Things/TV.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Props/Things/Basketball.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Props/Things/Frame.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Props/Things/Guitar.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Props/Things/Pillow.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Props/Dumpster.gd" type="Script" id=33]
+[ext_resource path="res://Props/outline effect.shader" type="Shader" id=34]
+[ext_resource path="res://Sprites/General/dumpster.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/General/dumpster+trashbags.png" type="Texture" id=36]
+[ext_resource path="res://Props/IconEffect.gd" type="Script" id=37]
+[ext_resource path="res://Sprites/Effects/smoke.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/General/trashbag.png" type="Texture" id=39]
+[ext_resource path="res://World/Hobo.gd" type="Script" id=40]
+[ext_resource path="res://Sprites/Hobo/hobo.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=42]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "light",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "dark",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+radius = 4.76621
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 106.52, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 106.52, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 362.46, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 184.099, 10 )
+
+[sub_resource type="PhysicsMaterial" id=7]
 
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=8]
 
-extents = Vector2( 518.818, 82.56 )
+extents = Vector2( 1107.3, 82.56 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="GDScript" id=9]
+
+script/source = "extends Area2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_Delete_body_entered(body):
+	if \"being_displayed\" in body:
+		body.get_parent().remove_child(body)
+
+ # Replace with function body.
+"
+
+[sub_resource type="Animation" id=10]
+
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("trash_bag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( -14.1879, -725.048 ), Vector2( 3.3443, -76.3573 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("trash_bag:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 30.5376, -150.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("icon:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "empty", "full" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("trash_bag:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("icon:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 26.5929 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("icon:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("icon:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.001, 1.1, 1.19246 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "smoke_effect"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "empty", "full" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("trash_bag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -234.314, -94.9043 ), Vector2( -66.2685, -171.211 ), Vector2( 29.7576, -88.0453 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("trash_bag:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 214.57, 257.951, 311.193 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("trash_bag:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="ShaderMaterial" id=12]
 
 resource_local_to_scene = true
-shader = ExtResource( 5 )
+shader = ExtResource( 34 )
 shader_param/intensity = 0
 shader_param/precision = 0.02
 shader_param/outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="SpriteFrames" id=13]
 
-radius = 2.67089
+animations = [ {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
+} ]
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="RectangleShape2D" id=14]
 
-resource_local_to_scene = true
-shader = ExtResource( 5 )
-shader_param/intensity = null
-shader_param/precision = 0.02
-shader_param/outline_color = Color( 255, 255, 255, 0 )
+extents = Vector2( 138.283, 81.3469 )
+
+[sub_resource type="Gradient" id=15]
+
+colors = PoolColorArray( 1, 1, 1, 1, 0.509804, 0.509804, 0.509804, 0 )
+
+[sub_resource type="GradientTexture" id=16]
+
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=17]
+
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=18]
+
+curve = SubResource( 17 )
+
+[sub_resource type="Curve" id=19]
+
+_data = [ Vector2( 0, 0.2888 ), 0.0, 0.0, 0, 0, Vector2( 0.982422, 0.533 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 2 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 90.0
+initial_velocity_random = 0.5
+angular_velocity = 50.0
+angular_velocity_random = 0.1
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -15.0
+angle = 360.0
+angle_random = 0.5
+scale = 0.5
+scale_random = 0.5
+scale_curve = SubResource( 20 )
+color_ramp = SubResource( 16 )
+hue_variation = 1.0
+hue_variation_curve = SubResource( 18 )
+
+[sub_resource type="Animation" id=22]
+
+resource_name = "end"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.117647 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.137255 ) ]
+}
+
+[sub_resource type="Gradient" id=24]
+
+colors = PoolColorArray( 0.329412, 0.458824, 0.776471, 0.788235, 0, 0.142158, 0.488281, 0.596078 )
+
+[sub_resource type="GradientTexture" id=25]
+
+gradient = SubResource( 24 )
+
+[sub_resource type="ParticlesMaterial" id=26]
+
+emission_shape = 2
+emission_box_extents = Vector3( 1200, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 650, 0 )
+initial_velocity = 175.0
+angular_velocity = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 25 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="BG City" type="TextureRect" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Sky" type="AnimatedSprite" parent="Backgrounds"]
+frames = SubResource( 1 )
+animation = "light"
+centered = false
+
+[node name="Building" type="TextureRect" parent="Backgrounds"]
 margin_right = 2467.0
-margin_bottom = 600.0
-texture = ExtResource( 2 )
+margin_bottom = 1080.0
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="BG City2" type="TextureRect" parent="BG City"]
-margin_left = 872.0
-margin_right = 3339.0
-margin_bottom = 600.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
+[node name="SFX" type="Node" parent="."]
+script = ExtResource( 5 )
 
-[node name="AlleyFloor" type="StaticBody2D" parent="."]
-position = Vector2( 583.567, 492.721 )
-physics_material_override = SubResource( 1 )
+[node name="drop" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+volume_db = -10.0
 
-[node name="icon" type="Sprite" parent="AlleyFloor"]
-visible = false
-position = Vector2( 2.38001, 0 )
-scale = Vector2( 8.51191, 1 )
-texture = ExtResource( 3 )
+[node name="more_trash" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleyFloor"]
-position = Vector2( -69.7185, -45.112 )
-shape = SubResource( 2 )
+[node name="selected" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+volume_db = -10.0
 
-[node name="Dumpster" type="Area2D" parent="."]
-position = Vector2( 134.522, 300.653 )
-script = ExtResource( 4 )
+[node name="rain" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+volume_db = -60.0
 
-[node name="icon" type="Sprite" parent="Dumpster"]
-material = SubResource( 5 )
-texture = ExtResource( 6 )
-script = ExtResource( 7 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Dumpster"]
-polygon = PoolVector2Array( -33.9043, -58.0977, 90.0601, -57.7571, 77.7999, 1.16006, 78.8216, 66.5479, 50.555, 76.0836, -83.2858, 76.0836, -82.6047, 12.058, -44.4617, -0.883301 )
+[node name="Tween" type="Tween" parent="SFX/rain"]
 
 [node name="Pointer" type="Area2D" parent="."]
-collision_mask = 3
-script = ExtResource( 8 )
+editor/display_folded = true
+input_pickable = false
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
+shape = SubResource( 2 )
+
+[node name="Ledges" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="WindowR" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 1405.64, 325.16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/WindowR"]
 shape = SubResource( 3 )
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="WindowL" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 788.187, 323.665 )
 
-[node name="Jabberwocky" parent="Objects" instance=ExtResource( 9 )]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ledges/WindowL"]
+shape = SubResource( 4 )
+
+[node name="Escape" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 1481.17, 169.302 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/Escape"]
+position = Vector2( -23.1581, 0 )
+shape = SubResource( 5 )
+
+[node name="Pipe" type="StaticBody2D" parent="Ledges"]
+position = Vector2( 724.128, 78.1136 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledges/Pipe"]
+shape = SubResource( 6 )
+
+[node name="AlleyFloor" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 671.569, 907.825 )
+physics_material_override = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleyFloor"]
+position = Vector2( 344.458, -45.1119 )
+shape = SubResource( 8 )
+
+[node name="Delete" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 95.0179, 650.509 )
+input_pickable = false
+collision_layer = 5
+collision_mask = 5
+script = SubResource( 9 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Delete"]
+position = Vector2( 84.7141, -12.2774 )
+polygon = PoolVector2Array( 40.951, 9.46918, 8.09711, 118.298, -163.359, 117.785, -196.727, 7.92914 )
+
+[node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+all_items = [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), null, null, null, null, null, null, null, null, null ]
+
+[node name="Dumpster" type="RigidBody2D" parent="Objects"]
+position = Vector2( 95.0179, 650.509 )
 collision_layer = 2
 collision_mask = 2
-physics_enabled = false
+mode = 1
+continuous_cd = 1
+contacts_reported = 5
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 33 )
 
-[node name="icon" parent="Objects/Jabberwocky" index="0"]
-material = SubResource( 6 )
+[node name="next_trash" type="Timer" parent="Objects/Dumpster"]
+wait_time = 10.0
+autostart = true
 
-[node name="Jabberwocky2" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 635.669, 172.246 )
+[node name="spawn_pos" type="Position2D" parent="Objects/Dumpster"]
+position = Vector2( 0.255234, -188.844 )
 
-[node name="Jabberwocky3" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 383.452, 258.369 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/Dumpster"]
+playback_speed = 2.0
+anims/drop_trash = SubResource( 10 )
+anims/filling_up = SubResource( 11 )
 
-[node name="Jabberwocky4" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 559.799, 272.723 )
+[node name="icon" type="AnimatedSprite" parent="Objects/Dumpster"]
+material = SubResource( 12 )
+frames = SubResource( 13 )
+animation = "empty"
+script = ExtResource( 37 )
 
-[node name="Jabberwocky5" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 559.799, 272.723 )
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Objects/Dumpster"]
+position = Vector2( 3.85267, 41.9006 )
+shape = SubResource( 14 )
 
-[node name="Jabberwocky6" parent="Objects" instance=ExtResource( 9 )]
-position = Vector2( 717.691, 301.43 )
+[node name="SmokeEffect" type="Particles2D" parent="Objects/Dumpster"]
+position = Vector2( -6.36548, -34.5439 )
+rotation = -1.58195
+emitting = false
+lifetime = 5.0
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource( 21 )
+texture = ExtResource( 38 )
+
+[node name="trash_bag" type="Sprite" parent="Objects/Dumpster"]
+position = Vector2( -14.1879, -725.048 )
+rotation = 0.532982
+texture = ExtResource( 39 )
+
+[node name="Hobo" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 831.595, 658.645 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 40 )
+
+[node name="next_desire" type="Timer" parent="Hobo"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Sprite" type="Sprite" parent="Hobo"]
+texture = ExtResource( 41 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hobo"]
+polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
+
+[node name="walk_tween" type="Tween" parent="Hobo"]
+
+[node name="Weather" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="GreyEffect" type="ColorRect" parent="Weather"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Weather/GreyEffect"]
+anims/end = SubResource( 22 )
+anims/start = SubResource( 23 )
+
+[node name="Rain" type="Particles2D" parent="Weather"]
+position = Vector2( 887.896, 15.811 )
+emitting = false
+amount = 550
+lifetime = 6.0
+speed_scale = 2.0
+randomness = 1.0
+fixed_fps = 60
+visibility_rect = Rect2( -100, -100, 200, 100 )
+process_material = SubResource( 26 )
+texture = ExtResource( 42 )
+
+[node name="RainPos" type="Position2D" parent="Weather"]
+position = Vector2( 885.112, -206.703 )
 
 [connection signal="area_entered" from="Pointer" to="Pointer" method="_on_hover_start"]
 [connection signal="area_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
 [connection signal="body_entered" from="Pointer" to="Pointer" method="_on_hover_start"]
 [connection signal="body_exited" from="Pointer" to="Pointer" method="_on_hover_end"]
-
-[editable path="Objects/Jabberwocky"]
+[connection signal="body_entered" from="Delete" to="Delete" method="_on_Delete_body_entered"]
+[connection signal="timeout" from="Objects/Dumpster/next_trash" to="Objects/Dumpster" method="_on_next_trash_timeout"]
+[connection signal="timeout" from="Hobo/next_desire" to="Hobo" method="_on_next_desire_timeout"]
