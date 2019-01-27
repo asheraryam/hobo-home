@@ -37,3 +37,6 @@ func _unmute(layer):
 
 func trash_filled():
 	$trashfall2dumspter.play()
+
+func play_default():
+	$default_used.play()

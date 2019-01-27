@@ -88,10 +88,12 @@ func activate_used(default_time):
 	var sound = get_node("AudioStreamPlayer")
 	if sound:
 		sound.play()
-	if get_node("SFX"):
+	elif get_node("SFX"):
 		var all = get_node("SFX").get_children()
 		var index = randi() % all.size()
 		all[index].play()
+	else:
+		WorldHelper.world.get_node("SFX").play_default()
 	var duration = time_for_activity
 	if(duration <0):
 		duration = default_time

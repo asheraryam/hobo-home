@@ -598,6 +598,7 @@ position = Vector2( 1156.9, 766.877 )
 rotation = 1.51656
 
 [node name="Hobo" parent="." instance=ExtResource( 60 )]
+default_action_time = 6
 
 [node name="Effects" type="Node2D" parent="."]
 position = Vector2( 91.8996, 614.164 )

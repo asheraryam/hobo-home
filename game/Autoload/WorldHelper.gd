@@ -12,6 +12,8 @@ var poof_effect = preload("res://Interface/SmokeEffect.tscn")
 
 var rain_chance = 0.5
 
+var default_used_sound = "res://Audio/Layal/food_1.wav"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

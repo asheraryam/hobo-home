@@ -1,4 +1,4 @@
-[gd_scene load_steps=578 format=2]
+[gd_scene load_steps=608 format=2]
 
 [ext_resource path="res://World/Hobo.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_00.png" type="Texture" id=2]
@@ -576,6 +576,36 @@
 [ext_resource path="res://Sprites/Hobo/Animations/Playing/Playing_17.png" type="Texture" id=574]
 [ext_resource path="res://Sprites/Hobo/Animations/Playing/Playing_18.png" type="Texture" id=575]
 [ext_resource path="res://Sprites/Hobo/Animations/Playing/Playing_19.png" type="Texture" id=576]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_00.png" type="Texture" id=577]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_01.png" type="Texture" id=578]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_02.png" type="Texture" id=579]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_03.png" type="Texture" id=580]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_04.png" type="Texture" id=581]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_05.png" type="Texture" id=582]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_06.png" type="Texture" id=583]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_07.png" type="Texture" id=584]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_08.png" type="Texture" id=585]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_09.png" type="Texture" id=586]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_10.png" type="Texture" id=587]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_11.png" type="Texture" id=588]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_12.png" type="Texture" id=589]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_13.png" type="Texture" id=590]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_14.png" type="Texture" id=591]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_15.png" type="Texture" id=592]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_16.png" type="Texture" id=593]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_17.png" type="Texture" id=594]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_18.png" type="Texture" id=595]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_19.png" type="Texture" id=596]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_20.png" type="Texture" id=597]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_21.png" type="Texture" id=598]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_22.png" type="Texture" id=599]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_23.png" type="Texture" id=600]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_24.png" type="Texture" id=601]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_25.png" type="Texture" id=602]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_26.png" type="Texture" id=603]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_27.png" type="Texture" id=604]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_28.png" type="Texture" id=605]
+[ext_resource path="res://Sprites/Hobo/Animations/Drugs/Drug_29.png" type="Texture" id=606]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -634,6 +664,11 @@ animations = [ {
 "loop": true,
 "name": "Playing",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 577 ), ExtResource( 578 ), ExtResource( 579 ), ExtResource( 580 ), ExtResource( 581 ), ExtResource( 582 ), ExtResource( 583 ), ExtResource( 584 ), ExtResource( 585 ), ExtResource( 586 ), ExtResource( 587 ), ExtResource( 588 ), ExtResource( 589 ), ExtResource( 590 ), ExtResource( 591 ), ExtResource( 592 ), ExtResource( 593 ), ExtResource( 594 ), ExtResource( 595 ), ExtResource( 596 ), ExtResource( 597 ), ExtResource( 598 ), ExtResource( 599 ), ExtResource( 600 ), ExtResource( 601 ), ExtResource( 602 ), ExtResource( 603 ), ExtResource( 604 ), ExtResource( 605 ), ExtResource( 606 ) ],
+"loop": true,
+"name": "Drugs",
+"speed": 30.0
 } ]
 
 [node name="Hobo" type="KinematicBody2D"]
@@ -644,7 +679,7 @@ script = ExtResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 22
+frame = 24
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
