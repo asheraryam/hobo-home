@@ -336,7 +336,7 @@ animations = [ {
 
 extents = Vector2( 138.283, 81.3469 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=16]
 
 resource_name = "end"
 length = 2.0
@@ -353,7 +353,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0.235294 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=17]
 
 resource_name = "start"
 length = 2.0
@@ -533,8 +533,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Weather/GreyEffect"]
-anims/end = SubResource( 20 )
-anims/start = SubResource( 21 )
+anims/end = SubResource( 16 )
+anims/start = SubResource( 17 )
 
 [node name="RainPos" type="Position2D" parent="Weather"]
 position = Vector2( 885.112, -206.703 )

@@ -50,7 +50,7 @@ func move_to(pos):
 
 func target_reached(thing_name, thing):
 	var time_to_next = default_action_time
-	if item_target:
+	if item_target and "usage_animation" in item_target:
 		$icon.play(item_target.usage_animation)
 		if item_target.time_for_activity != -1:
 			time_to_next = item_target.time_for_activity

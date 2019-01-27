@@ -23,11 +23,13 @@ func set_rain(value):
 		world.get_node("Backgrounds/Sky").animation = "dark"
 		world.get_node("Weather/Rain").emitting = true
 		world.get_node("SFX")._fade_in(world.get_node("SFX/rain"))
+		world.get_node("SFX")._fade_out(world.get_node("SFX/ambiance"))
 		world.apply_weather_destruction()
 	else:
 		if world.get_node("Weather/Rain").emitting:
 			world.get_node("Weather/GreyEffect/AnimationPlayer").play("end")
 		world.get_node("Backgrounds/Sky").animation = "light"
+		world.get_node("SFX")._fade_in(world.get_node("SFX/ambiance"))
 		world.get_node("Weather/Rain").emitting = false
 		world.get_node("SFX")._fade_out(world.get_node("SFX/rain"))
 

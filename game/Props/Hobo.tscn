@@ -554,7 +554,7 @@ script = ExtResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 24
+frame = 4
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
