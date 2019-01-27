@@ -408,17 +408,18 @@ __meta__ = {
 }
 
 [node name="SFX" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="drop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
+volume_db = -10.0
 
 [node name="more_trash" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
 
 [node name="selected" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
+volume_db = -10.0
 
 [node name="rain" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 9 )
@@ -568,6 +569,7 @@ polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.0
 [node name="walk_tween" type="Tween" parent="Hobo"]
 
 [node name="Weather" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="GreyEffect" type="ColorRect" parent="Weather"]
 margin_right = 1920.0
