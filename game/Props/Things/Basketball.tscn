@@ -37,6 +37,8 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
+hidden_when_used = true
+usage_animation = "Bounce"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
