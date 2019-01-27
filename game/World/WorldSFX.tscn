@@ -35,3 +35,5 @@ autoplay = true
 
 [node name="Tween" type="Tween" parent="ambiance"]
 
+[node name="dumpster" type="AudioStreamPlayer" parent="."]
+

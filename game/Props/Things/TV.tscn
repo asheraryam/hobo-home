@@ -7,11 +7,11 @@
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=5]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 59.8251, 46.0828 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=2]
 
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -39,10 +39,10 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.307358, 20.9003 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 2 )
 frames = SubResource( 3 )
 script = ExtResource( 5 )
 
