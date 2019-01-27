@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Props/Things/Jabberwocky_Physics.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Props/BaseObject.gd" type="Script" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Sprites/objects/spoon.png" type="Texture" id=6]
 [ext_resource path="res://Props/IconEffect.gd" type="Script" id=7]
 [ext_resource path="res://Props/BaseObject_AnimationPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Layal/spoon_1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Layal/knife_1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Layal/fork_1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Layal/fork_2.wav" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -48,4 +52,18 @@ script = ExtResource( 7 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 8 )]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 11 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 12 )
 
