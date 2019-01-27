@@ -34,7 +34,8 @@ physics_material_override = ExtResource( 1 )
 gravity_scale = 10.0
 can_sleep = false
 script = ExtResource( 2 )
-hidden_when_used = true
+weather_sensitive = true
+usage_animation = "Sitting"
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )

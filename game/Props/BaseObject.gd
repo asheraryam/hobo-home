@@ -4,6 +4,7 @@ export var hidden_when_used = false
 export var time_for_activity = -1
 export var weather_sensitive = false
 export var physics_enabled = true
+export(String) var usage_animation = "default"
 export var random_color = false
 var color_randomized = false
 
