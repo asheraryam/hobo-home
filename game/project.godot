@@ -24,10 +24,6 @@ config/icon="res://icon.png"
 WorldHelper="*res://Autoload/WorldHelper.gd"
 GlobalHelper="*res://Autoload/GlobalHelper.gd"
 
-[debug]
-
-shapes/collision/shape_color=Color( 0, 0.701961, 0.0117647, 0.501961 )
-
 [display]
 
 window/size/width=1920

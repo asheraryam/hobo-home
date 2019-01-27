@@ -3,7 +3,7 @@ extends RigidBody2D
 var displayed_item
 
 var item_pool = []
-var item_pool_length = 3
+var item_pool_length = 10
 var display_index = 0
 
 var random_object = preload("res://Props/Things/Jabberwocky.tscn")
@@ -11,6 +11,7 @@ var random_object = preload("res://Props/Things/Jabberwocky.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	populate_pool()
 
 func activate():
 	if item_pool.size() >0 and not $AnimationPlayer.is_playing():
@@ -18,13 +19,15 @@ func activate():
 	
 func show_item_from_pool():
 	if displayed_item:
+		displayed_item.being_displayed = false
 		displayed_item.get_parent().remove_child(displayed_item)
 		displayed_item = null
 	
-	if(item_pool.size() < item_pool_length):
-		populate_pool()
-	var thing = item_pool[display_index]
+#	if(item_pool.size() < item_pool_length):
+#		populate_pool()
+	
 	display_index = (display_index + 1) % item_pool.size()
+	var thing = item_pool[display_index]
 	display_item(thing)
 
 func populate_pool():
@@ -82,9 +85,11 @@ func displayed_pressed(item):
 		if index > -1:
 			item_pool.remove(index)
 			displayed_item = null
-			item_pool = []
-			$icon.animation = "empty"
-			set_hover(false)
+			if item_pool.size() < 1:
+				get_node("icon").animation = "empty"
+#			item_pool = []
+#			$icon.animation = "empty"
+#			set_hover(false)
 
 func set_hover(value):
 	if item_pool.size() == 0 and value:
