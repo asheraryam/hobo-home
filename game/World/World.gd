@@ -114,3 +114,10 @@ func unsleep_all_objects():
 	for node in WorldHelper.parent_all_objects.get_children():
 		if node.has_method("set_sleeping"):
 			node.set_sleeping(false)
+
+func apply_weather_destruction():
+	yield(get_tree().create_timer(3), "timeout")
+	for node in $Objects.get_children():
+		if node.has_method("apply_weather"):
+			node.apply_weather() 
+			

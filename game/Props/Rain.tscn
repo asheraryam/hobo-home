@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Effects/whiteRainDrop.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+
+colors = PoolColorArray( 0.329412, 0.458824, 0.776471, 0.788235, 0, 0.142158, 0.488281, 0.596078 )
+
+[sub_resource type="GradientTexture" id=2]
+
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+emission_shape = 2
+emission_box_extents = Vector3( 1200, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 650, 0 )
+initial_velocity = 175.0
+angular_velocity = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 2 )
+
+[node name="Rain" type="Particles2D"]
+position = Vector2( 887.896, 15.811 )
+emitting = false
+amount = 550
+lifetime = 6.0
+speed_scale = 2.0
+randomness = 1.0
+fixed_fps = 60
+visibility_rect = Rect2( -100, -100, 200, 100 )
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
+

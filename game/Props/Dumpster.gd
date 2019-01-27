@@ -49,7 +49,7 @@ func populate_pool():
 		WorldHelper.world.get_node("Hobo")._on_next_desire_timeout()
 	$next_trash.wait_time = (randi() % (max_next_time - min_next_time)) + min_next_time
 	
-	if(randf() > 0.8):
+	if(randf() < WorldHelper.rain_chance):
 		WorldHelper.set_rain(true)
 	else:
 		WorldHelper.set_rain(false)
