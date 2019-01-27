@@ -1,0 +1,129 @@
+[gd_scene load_steps=88 format=2]
+
+[ext_resource path="res://World/Hobo.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_00.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_01.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_03.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_04.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_05.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_06.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_07.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_08.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_09.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_10.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_11.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_12.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_13.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_14.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_15.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_16.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_17.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_18.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_19.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_20.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_21.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_22.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_23.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_24.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_25.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_26.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_27.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_28.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_29.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_30.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_31.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_32.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_33.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_34.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_35.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_36.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_37.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_38.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Hobo/Animations/Idle/Idle_39.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_00.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_01.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_02.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_03.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_04.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_05.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_06.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_07.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_08.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_09.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_10.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_11.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_12.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_13.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_14.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_15.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_16.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_17.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_18.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_19.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_20.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_21.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_22.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_23.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_24.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_25.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_26.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_27.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_28.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_29.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_30.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_31.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_32.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_33.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_34.png" type="Texture" id=76]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_35.png" type="Texture" id=77]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_36.png" type="Texture" id=78]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_37.png" type="Texture" id=79]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_38.png" type="Texture" id=80]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_39.png" type="Texture" id=81]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_40.png" type="Texture" id=82]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_41.png" type="Texture" id=83]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_42.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_43.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Hobo/Animations/Walk/Walk_44.png" type="Texture" id=86]
+
+[sub_resource type="SpriteFrames" id=16]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ) ],
+"loop": true,
+"name": "walking",
+"speed": 15.0
+} ]
+
+[node name="Hobo" type="KinematicBody2D"]
+position = Vector2( 836.355, 638.018 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="icon" type="AnimatedSprite" parent="."]
+frames = SubResource( 16 )
+frame = 34
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 1.01834, -51.5245, -39.5357, 107.612, 38.4924, 106.072 )
+
+[node name="next_desire" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="moving" type="Timer" parent="."]
+one_shot = true
+
+[node name="walk_tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="next_desire" to="." method="_on_next_desire_timeout"]
