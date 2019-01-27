@@ -12,6 +12,13 @@ var world = null
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func set_rain(value):
+	if value:
+		world.get_node("Backgrounds/Sky").animation = "dark"
+		world.get_node("Weather/Rain").emitting = true
+		world.get_node("SFX")._fade_in(world.get_node("SFX/rain"))
+	else:
+		world.get_node("Backgrounds/Sky").animation = "light"
+		world.get_node("Weather/Rain").emitting = false
+		world.get_node("SFX")._fade_out(world.get_node("SFX/rain"))
+
