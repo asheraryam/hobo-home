@@ -72,7 +72,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 
-radius = 4.76621
+radius = 6.61834
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -425,7 +425,6 @@ __meta__ = {
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 
 [node name="Pointer" type="Area2D" parent="."]
-editor/display_folded = true
 input_pickable = false
 collision_layer = 7
 collision_mask = 7
