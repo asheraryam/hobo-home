@@ -38,6 +38,7 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
+usage_animation = "Sitting"
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )

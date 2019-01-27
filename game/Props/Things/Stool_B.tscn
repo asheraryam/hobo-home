@@ -28,7 +28,7 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=3]
 
-extents = Vector2( 46.8466, 35.9358 )
+extents = Vector2( 46.8466, 39.6388 )
 
 [node name="Bottle" type="RigidBody2D"]
 physics_material_override = ExtResource( 1 )
@@ -38,6 +38,7 @@ contacts_reported = 5
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 2 )
+usage_animation = "Sitting"
 
 [node name="icon" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
