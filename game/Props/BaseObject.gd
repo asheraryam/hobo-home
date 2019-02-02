@@ -23,6 +23,7 @@ signal item_pressed(item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("Persist")
 	randomize()
 	if(random_color and not color_randomized):
 		modulate = Color(randf(), randf(), randf(), 1)
@@ -110,10 +111,10 @@ func apply_weather():
 		get_node("icon").hide()
 #		yield(get_tree().create_timer(3), "timeout")
 		var hobo=WorldHelper.world.get_node("Hobo")
-		if(hobo.target_item and hobo.target_item == self):
+		if("target_item" in hobo and hobo.target_item and hobo.target_item == self):
 			hobo.hobo.get_node("moving").disconnect("timeout", self, "target_reached")
 			hobo.get_node("usage_timer").disconnect("timeout", self, "idling")
-		queue_free()
+		self_destruct()
 #		remove_child(eff)
 #		WorldHelper.world.get_node("Effects").add_child(eff)
 #		eff.position = position
@@ -125,3 +126,33 @@ func apply_weather():
 
 func set_framed(value):
 	inside_frame = value
+
+func self_destruct():
+	remove_from_group("Persist")
+	queue_free()
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"rotation": rotation,
+		"inside_frame": inside_frame,
+		"hidden_when_used": hidden_when_used,
+		"time_for_activity": time_for_activity, 
+		"weather_sensitive": weather_sensitive,
+		"physics_enabled": physics_enabled,
+		"usage_animation": usage_animation
+	}
+	return save_dict
+
+func set_physics():
+	if dragging or being_displayed or inside_frame:
+		gravity_scale = 0
+		set_linear_velocity(Vector2(0,0))
+		set_angular_velocity(0)
+	if not ORIGINAL_GRAVITY:
+		ORIGINAL_GRAVITY = gravity_scale
+	if(not physics_enabled):
+		mode = MODE_STATIC

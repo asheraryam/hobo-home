@@ -26,6 +26,7 @@ func show_item_from_pool():
 	$AnimationPlayer.play("trash_pressed")
 	if displayed_item:
 		displayed_item.being_displayed = false
+		displayed_item.remove_from_group("Persist")
 		displayed_item.get_parent().remove_child(displayed_item)
 		displayed_item = null
 	
